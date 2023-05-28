@@ -1,0 +1,104 @@
+local M = {}
+
+---@type TerraColors.Debug
+M.debug = {
+    neon_pink = "<%= debug.neon_pink %>",
+    electric_lime = "<%= debug.electric_lime %>",
+    vivid_cyan = "<%= debug.vivid_cyan %>",
+}
+
+---@type TerraColors.Primaries
+M.primaries = {
+    "<%= primaries[0] %>",
+    "<%= primaries[1] %>",
+    "<%= primaries[2] %>",
+    "<%= primaries[3] %>",
+    "<%= primaries[4] %>",
+    "<%= primaries[5] %>",
+    "<%= primaries[6] %>",
+    "<%= primaries[7] %>",
+    "<%= primaries[8] %>",
+    "<%= primaries[9] %>",
+    "<%= primaries[10] %>",
+    "<%= primaries[11] %>",
+}
+
+---@type TerraColors.Palette
+M.palette = {
+    black = "<%= palette.black %>",
+    gray = "<%= palette.gray %>",
+    dark_red = "<%= palette.dark_red %>",
+    red = "<%= palette.red %>",
+    dark_green = "<%= palette.dark_green %>",
+    green = "<%= palette.green %>",
+    dark_yellow = "<%= palette.dark_yellow %>",
+    yellow = "<%= palette.yellow %>",
+    dark_blue = "<%= palette.dark_blue %>",
+    blue = "<%= palette.blue %>",
+    dark_magenta = "<%= palette.dark_magenta %>",
+    magenta = "<%= palette.magenta %>",
+    dark_cyan = "<%= palette.dark_cyan %>",
+    cyan = "<%= palette.cyan %>",
+    light_gray = "<%= palette.light_gray %>",
+    white = "<%= palette.white %>",
+}
+
+---@type TerraColors.Semantics
+M.semantics = {
+    bg = {
+        primary = {
+            dark = "<%= semantics.bg.primary.dark %>",
+            main = "<%= semantics.bg.primary.main %>",
+            light = "<%= semantics.bg.primary.light %>",
+        },
+        secondary = {
+            dark = "<%= semantics.bg.secondary.dark %>",
+            main = "<%= semantics.bg.secondary.main %>",
+            light = "<%= semantics.bg.secondary.light %>",
+        },
+        active = "<%= semantics.bg.active %>",
+        match = {
+            active = "<%= semantics.bg.match.active %>",
+            passive = "<%= semantics.bg.match.passive %>",
+        },
+        diff = {
+            add = "<%= semantics.bg.diff.add %>",
+            delete = "<%= semantics.bg.diff.delete %>",
+            change = "<%= semantics.bg.diff.change %>",
+            text = "<%= semantics.bg.diff.text %>",
+        },
+    },
+    fg = {
+        primary = {
+            dark = "<%= semantics.fg.primary.dark %>",
+            main = "<%= semantics.fg.primary.main %>",
+            light = "<%= semantics.fg.primary.light %>",
+        },
+        secondary = {
+            dark = "<%= semantics.fg.secondary.dark %>",
+            main = "<%= semantics.fg.secondary.main %>",
+            light = "<%= semantics.fg.secondary.light %>",
+        },
+        active = "<%= semantics.fg.active %>",
+        invert = "<%= semantics.fg.invert %>",
+        neutral = "<%= semantics.fg.neutral %>",
+        diff = {
+            add = "<%= semantics.fg.diff.add %>",
+            delete = "<%= semantics.fg.diff.delete %>",
+            change = "<%= semantics.fg.diff.change %>",
+            text = "<%= semantics.fg.diff.text %>",
+        },
+    },
+}
+
+---@return TerraColors
+M.colors = function()
+    return {
+        none = "none",
+        debug = M.debug,
+        primaries = M.primaries,
+        palette = M.palette,
+        semantics = M.semantics,
+    }
+end
+
