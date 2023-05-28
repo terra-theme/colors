@@ -5,18 +5,15 @@ import * as path from "path";
 import * as chokidar from "chokidar";
 import chalk from "chalk";
 
-// Static pathes to templates and themes
-const templatesDir = path.join(__dirname, "..", "templates");
-const themesDir = path.join(__dirname, "..", "themes");
-const outputDir = path.join(__dirname, "..", "..", "dist", "themes");
-const outputFileExtension = ".yml";
+import config from "../config";
+
 
 async function buildThemes(
   themeGroups: fs.Dirent[],
   targetLanguages: string[]
 ) {
   for (const dir of themeGroups.filter((dirent) => dirent.isDirectory())) {
-    const themeDirectoryPath = path.join(themesDir, dir.name);
+    const themeDirectoryPath = path.join(config.themesDir, dir.name);
     await processDirectory(themeDirectoryPath, targetLanguages);
   }
 }
@@ -32,7 +29,7 @@ async function processDirectory(themePath: string, targetLanguages: string[]) {
     if (fileStat.isDirectory()) {
       // If this file is a directory, process it recursively
       await processDirectory(filePath, targetLanguages);
-    } else if (path.extname(file) === outputFileExtension) {
+    } else if (path.extname(file) === config.outputFileExtension) {
       // If this file is a YAML file, process it
       const yamlData = yaml.load(
         await fs.readFile(filePath, "utf8")
@@ -42,7 +39,7 @@ async function processDirectory(themePath: string, targetLanguages: string[]) {
       for (const lang of targetLanguages) {
         // Read the template for this language
         const template = await fs.readFile(
-          path.join(templatesDir, `${lang}.ejs`),
+          path.join(config.templatesDir, `${lang}.ejs`),
           "utf8"
         );
 
@@ -54,12 +51,12 @@ async function processDirectory(themePath: string, targetLanguages: string[]) {
         // Save the result in an output file
         const outputFilename = `${path.basename(
           file,
-          outputFileExtension
+          config.outputFileExtension
         )}.${lang}`;
 
         const outputThemeDir = path.join(
-          outputDir,
-          path.dirname(filePath).replace(themesDir, "")
+          config.outputDir,
+          path.dirname(filePath).replace(config.themesDir, "")
         );
 
         await fs.ensureDir(outputThemeDir);
@@ -72,16 +69,16 @@ async function processDirectory(themePath: string, targetLanguages: string[]) {
 
 async function main() {
   // Create the output directory if it doesn't exist yet
-  await fs.ensureDir(outputDir);
+  await fs.ensureDir(config.outputDir);
 
   // Get the list of target languages by reading the template files
-  const templateFiles = await fs.readdir(templatesDir);
+  const templateFiles = await fs.readdir(config.templatesDir);
   const targetLanguages = templateFiles.map((file) =>
     path.basename(file, ".ejs")
   );
 
   // Process each subdirectory in the themes directory
-  const themeGroups = await fs.readdir(themesDir, { withFileTypes: true });
+  const themeGroups = await fs.readdir(config.themesDir, { withFileTypes: true });
 
   const buildThemesArgs: Parameters<typeof buildThemes> = [
     themeGroups,
@@ -94,7 +91,7 @@ async function main() {
   // Check if a 'watch' argument was provided when running the script
   if (process.argv.includes("--watch")) {
     // Watch the themes directory for changes
-    const watcher = chokidar.watch(themesDir, { persistent: true });
+    const watcher = chokidar.watch(config.themesDir, { persistent: true });
 
     watcher.on("change", (filePath) => {
       const relativePath = path.relative(process.cwd(), filePath);
@@ -125,12 +122,12 @@ async function main() {
       for (const lang of targetLanguages) {
         const outputFilename = `${path.basename(
           filePath,
-          outputFileExtension
+          config.outputFileExtension
         )}.${lang}`;
 
         const outputThemeDir = path.join(
-          outputDir,
-          path.dirname(filePath).replace(themesDir, "")
+          config.outputDir,
+          path.dirname(filePath).replace(config.themesDir, "")
         );
         const outputPath = path.join(outputThemeDir, outputFilename);
 
