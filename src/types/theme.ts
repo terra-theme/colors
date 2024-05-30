@@ -1,22 +1,26 @@
-type HexColor = `#${string}`;
+import { HexColor } from "./color";
+
+type MetaKey =
+  | "black_atom_engineering"
+  | "black_atom_operations"
+  | "black_atom_medical"
+  | "black_atom_research"
+  | "terra_spring_day"
+  | "terra_spring_night"
+  | "terra_summer_day"
+  | "terra_summer_night"
+  | "terra_winter_day"
+  | "terra_winter_night";
+
+type MetaLabel = "Black Atom - Engineering" | "Terra - Spring Night";
 
 interface Meta {
-  key:
-    | "black-atom-engineering"
-    | "black-atom-operations"
-    | "black-atom-medical"
-    | "black-atom-research"
-    | "terra-spring-day"
-    | "terra-spring-night"
-    | "terra-summer-day"
-    | "terra-summer-night"
-    | "terra-winter-day"
-    | "terra-winter-night";
-  label: "Black Atom Engineering";
+  key: MetaKey;
+  label: MetaLabel;
   appearance: "light" | "dark";
   status: "development" | "beta" | "release";
   collection: {
-    key: "black-atom" | "terra";
+    key: "black_atom" | "terra";
     label: "Black Atom" | "Terra";
   };
 }
@@ -256,7 +260,7 @@ interface Syntax {
      */
     builtin: HexColor;
   };
-  function: {
+  func: {
     /** Function definitions
      *
      * ```ts
@@ -496,7 +500,6 @@ interface Syntax {
        * ```
        * code block
        * ```
-       * ```
        */
       block: HexColor;
     };
@@ -529,6 +532,8 @@ interface Syntax {
     };
   };
   diff: {
+    /** Fallback for generic diff text */
+    neutral: HexColor;
     /** Added text (for diff files)
      *
      * ```diff
@@ -599,4 +604,13 @@ interface Definition {
   syntax: Syntax;
 }
 
-export { Meta, Primaries, Palette, Semantics, Syntax, Definition };
+export {
+  Meta,
+  MetaKey,
+  MetaLabel,
+  Primaries,
+  Palette,
+  Semantics,
+  Syntax,
+  Definition,
+};
