@@ -15,6 +15,8 @@ type MetaKey =
 type MetaLabel =
   | "Black Atom - Engineering"
   | "Black Atom - Operations"
+  | "Black Atom - Research"
+  | "Black Atom - Medical"
   | "Terra - Spring Night";
 
 interface Meta {
