@@ -36,11 +36,14 @@ const convertTheme = (theme: Theme.Definition, template: string) => {
 
 const main = async () => {
   const themes = await getThemes();
+  const fileTypes = getFileTypes(config.dirs.templates);
+
+  const generatedFiles: { [key: string]: string[] } = {};
 
   themes.forEach(theme => {
-    const fts = getFileTypes(config.dirs.templates);
+    generatedFiles[theme.meta.key] = [];
 
-    fts.forEach(ft => {
+    fileTypes.forEach(ft => {
       const output = convertTheme(theme, ft);
       const distDir = config.dirs.dist;
       const platformDir = path.join(distDir, ft);
@@ -50,8 +53,17 @@ const main = async () => {
       }
 
       fs.writeFileSync(path.join(platformDir, `${theme.meta.key}.${ft}`), output);
-      console.log(`${chalk.green("Generated:: ")} ${theme.meta.key}.${chalk.gray(ft)}`);
+      generatedFiles[theme.meta.key].push(ft);
     });
+  });
+
+  Object.entries(generatedFiles).forEach(([themeKey, files]) => {
+    console.log(
+      chalk.green("󰄴"),
+      chalk.white("Generated"),
+      chalk.bold(chalk.magenta(themeKey)),
+      `for ${chalk.green(`[` + chalk.cyan(files.join(", ")) + "]")}.`
+    );
   });
 };
 
