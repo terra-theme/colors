@@ -1,7 +1,7 @@
 local M = {}
 
 M.meta = {
-    key = "terra_spring_night",
+    key = "terra-spring-night",
     label = "Terra - Spring Night",
     appearance = "dark",
     status = "release",

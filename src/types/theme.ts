@@ -1,16 +1,16 @@
 import { HexColor } from "./color";
 
 type MetaKey =
-  | "black_atom_engineering"
-  | "black_atom_operations"
-  | "black_atom_medical"
-  | "black_atom_research"
-  | "terra_spring_day"
-  | "terra_spring_night"
-  | "terra_summer_day"
-  | "terra_summer_night"
-  | "terra_winter_day"
-  | "terra_winter_night";
+  | "black-atom-engineering"
+  | "black-atom-operations"
+  | "black-atom-medical"
+  | "black-atom-research"
+  | "terra-spring-day"
+  | "terra-spring-night"
+  | "terra-summer-day"
+  | "terra-summer-night"
+  | "terra-winter-day"
+  | "terra-winter-night";
 
 type MetaLabel = "Black Atom - Engineering" | "Terra - Spring Night";
 

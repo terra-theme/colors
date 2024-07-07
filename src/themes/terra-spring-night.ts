@@ -1,7 +1,7 @@
-import * as Theme from "../../types/theme";
+import * as Theme from "../types/theme";
 
 const meta: Theme.Meta = {
-  key: "terra_spring_night",
+  key: "terra-spring-night",
   label: "Terra - Spring Night",
   appearance: "dark",
   status: "release",

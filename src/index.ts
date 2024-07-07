@@ -1,9 +1,10 @@
 import * as fs from "fs";
 import * as path from "path";
 import ejs from "ejs";
+
 import * as Theme from "./types/theme";
-import terraSpringNight from "./themes/terra/spring-night";
 import { config } from "./config";
+import terraSpringNight from "./themes/terra-spring-night";
 
 const themes: Theme.Definition[] = [terraSpringNight];
 const filetypes = ["lua", "css", "scss"];
