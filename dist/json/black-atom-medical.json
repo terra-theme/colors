@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "key": "black-atom-medical",
+    "label": "Black Atom - Medical",
+    "appearance": "light",
+    "status": "release",
+    "collection": {
+      "key": "black_atom",
+      "label": "Black Atom"
+    }
+  },
+  "primaries": [
+    "#222325",
+    "#313533",
+    "#3e4542",
+    "#4a514f",
+    "#545d5a",
+    "#616a65",
+    "#6d7873",
+    "#7a8782",
+    "#bcc3c0",
+    "#c8cfcd",
+    "#d4dbd8",
+    "#e6e8e6"
+  ],
+  "palette": {
+    "black": "#313533",
+    "gray": "#545d5a",
+    "darkRed": "#5d54ad",
+    "red": "#7872c2",
+    "darkGreen": "#628942",
+    "green": "#6e9a4b",
+    "darkYellow": "#4a514f",
+    "yellow": "#57ab52",
+    "darkBlue": "#616a65",
+    "blue": "#545d5a",
+    "darkMagenta": "#887bd3",
+    "magenta": "#998ed9",
+    "darkCyan": "#459f55",
+    "cyan": "#4db15e",
+    "lightGray": "#7a8782",
+    "white": "#d4dbd8"
+  },
+  "semantics": {
+    "bg": {
+      "primary": {
+        "dark": "#c8cfcd",
+        "main": "#d4dbd8",
+        "light": "#e6e8e6"
+      },
+      "secondary": {
+        "dark": "#6d7873",
+        "main": "#7a8782",
+        "light": "#bcc3c0"
+      },
+      "active": "#545d5a",
+      "match": {
+        "active": "#c8cfcd",
+        "passive": "#d4dbd8"
+      }
+    },
+    "fg": {
+      "primary": {
+        "dark": "#222325",
+        "main": "#313533",
+        "light": "#3e4542"
+      },
+      "secondary": {
+        "dark": "#4a514f",
+        "main": "#545d5a",
+        "light": "#616a65"
+      },
+      "active": "#4db15e",
+      "invert": "#d4dbd8",
+      "neutral": "#6d7873"
+    }
+  },
+  "syntax": {
+    "default": "#313533",
+    "variable": {
+      "default": "#545d5a",
+      "builtin": "#616a65"
+    },
+    "constant": {
+      "default": "#887bd3",
+      "builtin": "#998ed9"
+    },
+    "string": {
+      "default": "#6e9a4b"
+    },
+    "comment": {
+      "default": "#4a514f"
+    },
+    "keyword": {
+      "default": "#7872c2"
+    },
+    "function": {
+      "default": "#57ab52"
+    },
+    "type": {
+      "default": "#4db15e"
+    }
+  }
+}

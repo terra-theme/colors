@@ -1,0 +1,86 @@
+meta:
+  key: black-atom-engineering
+  label: Black Atom - Engineering
+  appearance: dark
+  status: release
+  collection:
+    key: black_atom
+    label: Black Atom
+
+primaries:
+  - #040505
+  - #0e1110
+  - #181b19
+  - #1d201e
+  - #3e4441
+  - #565f59
+  - #606a65
+  - #79857f
+  - #9fafa7
+  - #abbbb3
+  - #c4d4cc
+  - #d0e0d8
+
+palette:
+  black: #181b19
+  gray: #565f59
+  darkRed: #9891d6
+  red: #a6a1df
+  darkGreen: #93c270
+  green: #a0ce7d
+  darkYellow: #abbbb3
+  yellow: #9BE197
+  darkBlue: #9fafa7
+  blue: #c4d4cc
+  darkMagenta: #a498e9
+  magenta: #b7aded
+  darkCyan: #6ac779
+  cyan: #88dc96
+  lightGray: #9fafa7
+  white: #d0e0d8
+
+semantics:
+  bg:
+    primary:
+      dark: #040505
+      main: #0e1110
+      light: #181b19
+    secondary:
+      dark: #1d201e
+      main: #3e4441
+      light: #565f59
+    active: #1d201e
+    match:
+      active: #181b19
+      passive: #1d201e
+  fg:
+    primary:
+      dark: #abbbb3
+      main: #c4d4cc
+      light: #d0e0d8
+    secondary:
+      dark: #606a65
+      main: #79857f
+      light: #9fafa7
+    active: #88dc96
+    invert: #0e1110
+    neutral: #565f59
+
+syntax:
+  default: #c4d4cc
+  variable:
+    default: #c4d4cc
+    builtin: #c4d4cc
+  constant:
+    default: #abbbb3
+    builtin: #abbbb3
+  string:
+    default: #a0ce7d
+  comment:
+    default: #565f59
+  keyword:
+    default: #a6a1df
+  function:
+    default: #9BE197
+  type:
+    default: #88dc96

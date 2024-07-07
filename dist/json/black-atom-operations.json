@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "key": "black-atom-operations",
+    "label": "Black Atom - Operations",
+    "appearance": "dark",
+    "status": "release",
+    "collection": {
+      "key": "black_atom",
+      "label": "Black Atom"
+    }
+  },
+  "primaries": [
+    "#141515",
+    "#181b1a",
+    "#1c1f1e",
+    "#222726",
+    "#3b4743",
+    "#52635d",
+    "#5b6f68",
+    "#738b83",
+    "#9fafa7",
+    "#abbbb3",
+    "#c4d4cc",
+    "#d0e0d8"
+  ],
+  "palette": {
+    "black": "#181b1a",
+    "gray": "#3b4743",
+    "darkRed": "#9891d6",
+    "red": "#a6a1df",
+    "darkGreen": "#93c270",
+    "green": "#a0ce7d",
+    "darkYellow": "#9fafa7",
+    "yellow": "#9BE197",
+    "darkBlue": "#abbbb3",
+    "blue": "#c4d4cc",
+    "darkMagenta": "#a498e9",
+    "magenta": "#b7aded",
+    "darkCyan": "#6ac779",
+    "cyan": "#88dc96",
+    "lightGray": "#738b83",
+    "white": "#c4d4cc"
+  },
+  "semantics": {
+    "bg": {
+      "primary": {
+        "dark": "#141515",
+        "main": "#181b1a",
+        "light": "#1c1f1e"
+      },
+      "secondary": {
+        "dark": "#222726",
+        "main": "#3b4743",
+        "light": "#52635d"
+      },
+      "active": "#222726",
+      "match": {
+        "active": "#222726",
+        "passive": "#3b4743"
+      }
+    },
+    "fg": {
+      "primary": {
+        "dark": "#abbbb3",
+        "main": "#c4d4cc",
+        "light": "#d0e0d8"
+      },
+      "secondary": {
+        "dark": "#5b6f68",
+        "main": "#738b83",
+        "light": "#9fafa7"
+      },
+      "active": "#88dc96",
+      "invert": "#181b1a",
+      "neutral": "#52635d"
+    }
+  },
+  "syntax": {
+    "default": "#c4d4cc",
+    "variable": {
+      "default": "#c4d4cc",
+      "builtin": "#c4d4cc"
+    },
+    "constant": {
+      "default": "#9fafa7",
+      "builtin": "#9fafa7"
+    },
+    "string": {
+      "default": "#a0ce7d"
+    },
+    "comment": {
+      "default": "#52635d"
+    },
+    "keyword": {
+      "default": "#a6a1df"
+    },
+    "function": {
+      "default": "#9BE197"
+    },
+    "type": {
+      "default": "#88dc96"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+meta:
+  key: terra-spring-night
+  label: Terra - Spring Night
+  appearance: dark
+  status: release
+  collection:
+    key: terra
+    label: Terra
+
+primaries:
+  - #1d201f
+  - #212523
+  - #272c2a
+  - #313634
+  - #394740
+  - #51635a
+  - #677e72
+  - #82978c
+  - #b8aa94
+  - #c3b8a4
+  - #d6d0c2
+  - #e0ddd1
+
+palette:
+  black: #272c2a
+  gray: #394740
+  darkRed: #b95847
+  red: #ba6e5f
+  darkGreen: #6a9f60
+  green: #8ac090
+  darkYellow: #e89a61
+  yellow: #d1a762
+  darkBlue: #899ddc
+  blue: #99b9e6
+  darkMagenta: #d5a9c3
+  magenta: #c6b3da
+  darkCyan: #679980
+  cyan: #85ad9f
+  lightGray: #c3b8a4
+  white: #e0ddd1
+
+semantics:
+  bg:
+    primary:
+      dark: #1d201f
+      main: #212523
+      light: #272c2a
+    secondary:
+      dark: #313634
+      main: #394740
+      light: #82978c
+    active: #51635a
+    match:
+      active: #313634
+      passive: #394740
+  fg:
+    primary:
+      dark: #d6d0c2
+      main: #e0ddd1
+      light: 
+    secondary:
+      dark: #82978c
+      main: #b8aa94
+      light: #c3b8a4
+    active: #8ac090
+    invert: #272c2a
+    neutral: #677e72
+
+syntax:
+  default: #e0ddd1
+  variable:
+    default: #99b9e6
+    builtin: #99b9e6
+  constant:
+    default: #e89a61
+    builtin: #e89a61
+  string:
+    default: #8ac090
+  comment:
+    default: #677e72
+  keyword:
+    default: #ba6e5f
+  function:
+    default: #d1a762
+  type:
+    default: #85ad9f
