@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import ejs from "ejs";
+import chalk from "chalk";
 
 import * as Theme from "./types/theme";
 import { config } from "./config";
@@ -35,6 +36,8 @@ themes.forEach((theme) => {
     }
 
     fs.writeFileSync(path.join(platformDir, `${theme.meta.key}.${ft}`), output);
-    console.log(`Generated ${ft} theme for ${theme.meta.key}`);
+    console.log(
+      `${chalk.green("Generated:: ")} ${theme.meta.key}.${chalk.gray(ft)}`,
+    );
   });
 });
