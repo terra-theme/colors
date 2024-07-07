@@ -7,7 +7,12 @@ import { config } from "./config";
 import terraSpringNight from "./themes/terra-spring-night";
 
 const themes: Theme.Definition[] = [terraSpringNight];
-const filetypes = ["lua", "css", "scss"];
+
+/** Dynamically aggregates all available file types in the templates directory. */
+const getFileTypes = (templatesDir: string): string[] => {
+  const files = fs.readdirSync(templatesDir);
+  return files.map((file) => file.split(".")[0]);
+};
 
 const convertTheme = (theme: Theme.Definition, template: string) => {
   const templatsDir = config.dirs.templates;
@@ -17,7 +22,9 @@ const convertTheme = (theme: Theme.Definition, template: string) => {
 };
 
 themes.forEach((theme) => {
-  filetypes.forEach((ft) => {
+  const fts = getFileTypes(config.dirs.templates);
+
+  fts.forEach((ft) => {
     const output = convertTheme(theme, ft);
     const distDir = config.dirs.dist;
     const platformDir = path.join(distDir, ft);
