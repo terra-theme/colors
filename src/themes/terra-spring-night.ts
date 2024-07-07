@@ -7,8 +7,8 @@ const meta: Theme.Meta = {
   status: "release",
   collection: {
     key: "terra",
-    label: "Terra",
-  },
+    label: "Terra"
+  }
 };
 
 const primaries: Theme.Primaries = [
@@ -28,7 +28,7 @@ const primaries: Theme.Primaries = [
   "#b8aa94",
   "#c3b8a4",
   "#d6d0c2",
-  "#e0ddd1",
+  "#e0ddd1"
 ];
 
 const palette: Theme.Palette = {
@@ -54,7 +54,7 @@ const palette: Theme.Palette = {
   cyan: "#85ad9f",
 
   lightGray: primaries[9],
-  white: primaries[11],
+  white: primaries[11]
 };
 
 const semantics: Theme.Semantics = {
@@ -62,35 +62,35 @@ const semantics: Theme.Semantics = {
     primary: {
       dark: primaries[0],
       main: primaries[1],
-      light: primaries[2],
+      light: primaries[2]
     },
     secondary: {
       dark: primaries[3],
       main: primaries[4],
-      light: primaries[7],
+      light: primaries[7]
     },
     active: primaries[5],
     match: {
       active: primaries[3],
-      passive: primaries[4],
+      passive: primaries[4]
     },
     diff: {
       add: palette.green,
       delete: palette.red,
       change: palette.blue,
-      text: palette.darkBlue,
-    },
+      text: palette.darkBlue
+    }
   },
   fg: {
     primary: {
       dark: primaries[10],
       main: primaries[11],
-      light: primaries[12],
+      light: primaries[12]
     },
     secondary: {
       dark: primaries[7],
       main: primaries[8],
-      light: primaries[9],
+      light: primaries[9]
     },
     active: palette.green,
     invert: primaries[2],
@@ -99,9 +99,9 @@ const semantics: Theme.Semantics = {
       add: palette.green,
       delete: palette.red,
       change: palette.blue,
-      text: palette.darkBlue,
-    },
-  },
+      text: palette.darkBlue
+    }
+  }
 };
 
 const syntax: Theme.Syntax = {
@@ -110,58 +110,58 @@ const syntax: Theme.Syntax = {
     default: palette.blue,
     builtin: palette.blue,
     parameter: palette.darkYellow,
-    member: palette.blue,
+    member: palette.blue
   },
   constant: {
     default: palette.darkYellow,
-    builtin: palette.darkYellow,
+    builtin: palette.darkYellow
   },
   module: {
-    default: palette.darkBlue,
+    default: palette.darkBlue
   },
   string: {
     default: palette.green,
     documentation: palette.cyan,
     regexp: palette.darkYellow,
-    escape: palette.red,
+    escape: palette.red
   },
   boolean: {
-    default: palette.darkYellow,
+    default: palette.darkYellow
   },
   number: {
-    default: palette.darkYellow,
+    default: palette.darkYellow
   },
   type: {
     default: palette.cyan,
-    builtin: palette.darkCyan,
+    builtin: palette.darkCyan
   },
   attribute: {
     default: palette.cyan,
-    builtin: palette.cyan,
+    builtin: palette.cyan
   },
   func: {
     default: palette.yellow,
     builtin: palette.yellow,
-    method: palette.yellow,
+    method: palette.yellow
   },
   constructor: {
-    default: palette.yellow,
+    default: palette.yellow
   },
   operator: {
-    default: palette.magenta,
+    default: palette.magenta
   },
   keyword: {
-    default: palette.red,
+    default: palette.red
   },
   punctuation: {
     default: semantics.fg.primary.main,
     delimiter: semantics.fg.primary.main,
     bracket: semantics.fg.primary.main,
-    special: palette.cyan,
+    special: palette.cyan
   },
   comment: {
     default: semantics.fg.neutral,
-    documentation: semantics.fg.secondary.dark,
+    documentation: semantics.fg.secondary.dark
   },
   markup: {
     default: semantics.fg.primary.main,
@@ -172,7 +172,7 @@ const syntax: Theme.Syntax = {
       h3: palette.darkYellow,
       h4: palette.darkYellow,
       h5: palette.darkYellow,
-      h6: palette.darkYellow,
+      h6: palette.darkYellow
     },
     strong: semantics.fg.primary.main,
     italic: semantics.fg.primary.main,
@@ -183,32 +183,32 @@ const syntax: Theme.Syntax = {
     link: {
       default: palette.blue,
       label: palette.green,
-      url: palette.blue,
+      url: palette.blue
     },
     code: {
       default: palette.green,
       inline: palette.green,
-      block: palette.green,
+      block: palette.green
     },
     list: {
       default: semantics.fg.primary.main,
       checked: semantics.fg.active,
-      unchecked: semantics.fg.neutral,
-    },
+      unchecked: semantics.fg.neutral
+    }
   },
   diff: {
     neutral: semantics.fg.diff.text,
     plus: semantics.fg.invert,
     minus: semantics.fg.diff.delete,
-    delta: semantics.fg.diff.change,
+    delta: semantics.fg.diff.change
   },
   tag: {
     default: semantics.fg.primary.main,
     builtin: palette.darkYellow,
     custom: palette.darkYellow,
     attribute: semantics.fg.primary.main,
-    delimiter: palette.darkYellow,
-  },
+    delimiter: palette.darkYellow
+  }
 };
 
 const theme: Theme.Definition = {
@@ -216,7 +216,7 @@ const theme: Theme.Definition = {
   primaries,
   palette,
   semantics,
-  syntax,
+  syntax
 };
 
 export default theme;

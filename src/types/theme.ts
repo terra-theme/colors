@@ -610,13 +610,4 @@ interface Definition {
   syntax: Syntax;
 }
 
-export {
-  Meta,
-  MetaKey,
-  MetaLabel,
-  Primaries,
-  Palette,
-  Semantics,
-  Syntax,
-  Definition,
-};
+export { Meta, MetaKey, MetaLabel, Primaries, Palette, Semantics, Syntax, Definition };
