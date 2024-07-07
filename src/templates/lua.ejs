@@ -1,5 +1,6 @@
 local M = {}
 
+---@class BlackAtom.Theme.Meta
 M.meta = {
     key = "<%= theme.meta.key %>",
     label = "<%= theme.meta.label %>",
@@ -11,6 +12,7 @@ M.meta = {
     },
 }
 
+---@class BlackAtom.Theme.Primaries
 M.primaries = {
     "<%= theme.primaries[0] %>",
     "<%= theme.primaries[1] %>",
@@ -26,6 +28,7 @@ M.primaries = {
     "<%= theme.primaries[11] %>",
 }
 
+---@class BlackAtom.Theme.Palette
 M.palette = {
     black = "<%= theme.palette.black %>",
     gray = "<%= theme.palette.gray %>",
@@ -45,6 +48,7 @@ M.palette = {
     white = "<%= theme.palette.white %>",
 }
 
+---@class BlackAtom.Theme.Semantics
 M.semantics = {
     bg = {
         primary = {
@@ -92,7 +96,7 @@ M.semantics = {
     },
 }
 
-
+---@class BlackAtom.Theme.Syntax
 M.syntax = {
     variable = {
         default = "<%= theme.syntax.variable.default %>",
@@ -199,6 +203,7 @@ M.syntax = {
     }
 }
 
+---@class BlackAtom.Theme.Colors
 M.colors = {
     none = "none",
     debug = M.debug,
