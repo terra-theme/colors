@@ -3,29 +3,29 @@ import * as path from "path";
 import ejs from "ejs";
 import * as Theme from "./types/theme";
 import terraSpringNight from "./themes/terra/spring-night";
+import { config } from "./config";
 
 const themes: Theme.Definition[] = [terraSpringNight];
-const plattforms = ["lua", "css", "scss"];
+const filetypes = ["lua", "css", "scss"];
 
 const convertTheme = (theme: Theme.Definition, template: string) => {
-  const templatePath = path.join(__dirname, `./templates/${template}.ejs`);
+  const templatsDir = config.dirs.templates;
+  const templatePath = path.join(templatsDir, `${template}.ejs`);
   const templateContent = fs.readFileSync(templatePath, "utf-8");
   return ejs.render(templateContent, { theme });
 };
 
 themes.forEach((theme) => {
-  plattforms.forEach((platform) => {
-    const output = convertTheme(theme, platform);
-    const outputDir = path.join(__dirname, "../dist", platform);
+  filetypes.forEach((ft) => {
+    const output = convertTheme(theme, ft);
+    const distDir = config.dirs.dist;
+    const platformDir = path.join(distDir, ft);
 
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    if (!fs.existsSync(platformDir)) {
+      fs.mkdirSync(platformDir, { recursive: true });
     }
-    fs.writeFileSync(
-      path.join(outputDir, `${theme.meta.key}.${platform}`),
-      output,
-    );
-    // TODO: run formater for file extension
-    console.log(`Generated ${platform} theme for ${theme.meta.key}`);
+
+    fs.writeFileSync(path.join(platformDir, `${theme.meta.key}.${ft}`), output);
+    console.log(`Generated ${ft} theme for ${theme.meta.key}`);
   });
 });
