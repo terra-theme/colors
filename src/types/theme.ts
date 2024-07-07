@@ -12,7 +12,10 @@ type MetaKey =
   | "terra-winter-day"
   | "terra-winter-night";
 
-type MetaLabel = "Black Atom - Engineering" | "Terra - Spring Night";
+type MetaLabel =
+  | "Black Atom - Engineering"
+  | "Black Atom - Operations"
+  | "Terra - Spring Night";
 
 interface Meta {
   key: MetaKey;

@@ -5,10 +5,16 @@ import chalk from "chalk";
 
 import * as Theme from "./types/theme";
 import { config } from "./config";
+
 import terraSpringNight from "./themes/terra-spring-night";
 import blackAtomEngineering from "./themes/black-atom-engineering";
+import blackAtomOperations from "./themes/black-atom-operations";
 
-const themes: Theme.Definition[] = [terraSpringNight, blackAtomEngineering];
+const themes: Theme.Definition[] = [
+  terraSpringNight,
+  blackAtomEngineering,
+  blackAtomOperations,
+];
 
 /** Dynamically aggregates all available file types in the templates directory. */
 const getFileTypes = (templatesDir: string): string[] => {
