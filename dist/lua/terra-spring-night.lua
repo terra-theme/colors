@@ -1,5 +1,6 @@
 local M = {}
 
+---@class BlackAtom.Theme.Meta
 M.meta = {
     key = "terra-spring-night",
     label = "Terra - Spring Night",
@@ -11,6 +12,7 @@ M.meta = {
     },
 }
 
+---@class BlackAtom.Theme.Primaries
 M.primaries = {
     "#1d201f",
     "#212523",
@@ -26,6 +28,7 @@ M.primaries = {
     "#e0ddd1",
 }
 
+---@class BlackAtom.Theme.Palette
 M.palette = {
     black = "#272c2a",
     gray = "#394740",
@@ -45,6 +48,7 @@ M.palette = {
     white = "#e0ddd1",
 }
 
+---@class BlackAtom.Theme.Semantics
 M.semantics = {
     bg = {
         primary = {
@@ -92,8 +96,9 @@ M.semantics = {
     },
 }
 
-
+---@class BlackAtom.Theme.Syntax
 M.syntax = {
+    default = "#e0ddd1",
     variable = {
         default = "#99b9e6",
         builtin = "#99b9e6",
@@ -199,6 +204,7 @@ M.syntax = {
     }
 }
 
+---@class BlackAtom.Theme.Colors
 M.colors = {
     none = "none",
     debug = M.debug,

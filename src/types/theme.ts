@@ -88,6 +88,7 @@ interface Semantics {
 
 /** Inspired by :h treesitter-highlight-groups */
 interface Syntax {
+  default: HexColor;
   variable: {
     /** Default variable color
      *

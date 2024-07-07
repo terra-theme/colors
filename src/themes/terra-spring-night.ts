@@ -105,6 +105,7 @@ const semantics: Theme.Semantics = {
 };
 
 const syntax: Theme.Syntax = {
+  default: semantics.fg.primary.main,
   variable: {
     default: palette.blue,
     builtin: palette.blue,
