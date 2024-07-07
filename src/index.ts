@@ -6,17 +6,22 @@ import chalk from "chalk";
 import * as Theme from "./types/theme";
 import { config } from "./config";
 
-import terraSpringNight from "./themes/terra-spring-night";
-import blackAtomEngineering from "./themes/black-atom-engineering";
-import blackAtomOperations from "./themes/black-atom-operations";
+/** Dynamically imports all available themes.*/
+const getThemes = async (): Promise<Theme.Definition[]> => {
+  const themes: Theme.Definition[] = [];
+  const themesDir = config.dirs.themes;
 
-const themes: Theme.Definition[] = [
-  terraSpringNight,
-  blackAtomEngineering,
-  blackAtomOperations,
-];
+  const files = fs.readdirSync(themesDir);
 
-/** Dynamically aggregates all available file types in the templates directory. */
+  for (const file of files) {
+    const theme = await import(path.join(themesDir, file));
+    themes.push(theme.default);
+  }
+
+  return themes;
+};
+
+/** Dynamically aggregates all available file types in the templates directory.*/
 const getFileTypes = (templatesDir: string): string[] => {
   const files = fs.readdirSync(templatesDir);
   return files.map((file) => file.split(".")[0]);
@@ -29,21 +34,30 @@ const convertTheme = (theme: Theme.Definition, template: string) => {
   return ejs.render(templateContent, { theme });
 };
 
-themes.forEach((theme) => {
-  const fts = getFileTypes(config.dirs.templates);
+const main = async () => {
+  const themes = await getThemes();
 
-  fts.forEach((ft) => {
-    const output = convertTheme(theme, ft);
-    const distDir = config.dirs.dist;
-    const platformDir = path.join(distDir, ft);
+  themes.forEach((theme) => {
+    const fts = getFileTypes(config.dirs.templates);
 
-    if (!fs.existsSync(platformDir)) {
-      fs.mkdirSync(platformDir, { recursive: true });
-    }
+    fts.forEach((ft) => {
+      const output = convertTheme(theme, ft);
+      const distDir = config.dirs.dist;
+      const platformDir = path.join(distDir, ft);
 
-    fs.writeFileSync(path.join(platformDir, `${theme.meta.key}.${ft}`), output);
-    console.log(
-      `${chalk.green("Generated:: ")} ${theme.meta.key}.${chalk.gray(ft)}`,
-    );
+      if (!fs.existsSync(platformDir)) {
+        fs.mkdirSync(platformDir, { recursive: true });
+      }
+
+      fs.writeFileSync(
+        path.join(platformDir, `${theme.meta.key}.${ft}`),
+        output,
+      );
+      console.log(
+        `${chalk.green("Generated:: ")} ${theme.meta.key}.${chalk.gray(ft)}`,
+      );
+    });
   });
-});
+};
+
+main();
