@@ -529,7 +529,7 @@ interface Syntax {
        * - [ ] item
        * ```
        */
-      listUnchecked: HexColor;
+      unchecked: HexColor;
     };
   };
   diff: {

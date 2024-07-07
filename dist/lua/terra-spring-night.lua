@@ -186,7 +186,7 @@ M.syntax = {
         list = {
             default = "#e0ddd1",
             checked =  "#8ac090",
-            listUnchecked = "#677e72"
+            listUnchecked = ""
         },
     },
     diff = {

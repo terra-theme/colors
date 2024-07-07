@@ -5,8 +5,9 @@ import ejs from "ejs";
 import * as Theme from "./types/theme";
 import { config } from "./config";
 import terraSpringNight from "./themes/terra-spring-night";
+import blackAtomEngineering from "./themes/black-atom-engineering";
 
-const themes: Theme.Definition[] = [terraSpringNight];
+const themes: Theme.Definition[] = [terraSpringNight, blackAtomEngineering];
 
 /** Dynamically aggregates all available file types in the templates directory. */
 const getFileTypes = (templatesDir: string): string[] => {

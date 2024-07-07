@@ -1,59 +1,59 @@
 import * as Theme from "../types/theme";
 
 const meta: Theme.Meta = {
-  key: "terra-spring-night",
-  label: "Terra - Spring Night",
+  key: "black-atom-engineering",
+  label: "Black Atom - Engineering",
   appearance: "dark",
   status: "release",
   collection: {
-    key: "terra",
-    label: "Terra",
+    key: "black_atom",
+    label: "Black Atom",
   },
 };
 
 const primaries: Theme.Primaries = [
   // Lows
-  "#1d201f",
-  "#212523",
-  "#272c2a",
-  "#313634",
+  "#040505",
+  "#0e1110",
+  "#181b19",
+  "#1d201e",
 
   // Mids
-  "#394740",
-  "#51635a",
-  "#677e72",
-  "#82978c",
+  "#3e4441",
+  "#565f59",
+  "#606a65",
+  "#79857f",
 
   // Highs
-  "#b8aa94",
-  "#c3b8a4",
-  "#d6d0c2",
-  "#e0ddd1",
+  "#9fafa7",
+  "#abbbb3",
+  "#c4d4cc",
+  "#d0e0d8",
 ];
 
 const palette: Theme.Palette = {
   black: primaries[2],
-  gray: primaries[4],
+  gray: primaries[5],
 
-  darkRed: "#b95847",
-  red: "#ba6e5f",
+  darkRed: "#9891d6",
+  red: "#a6a1df",
 
-  darkGreen: "#6a9f60",
-  green: "#8ac090",
+  darkGreen: "#93c270",
+  green: "#a0ce7d",
 
-  darkYellow: "#e89a61",
-  yellow: "#d1a762",
+  darkYellow: primaries[9],
+  yellow: "#9BE197",
 
-  darkBlue: "#899ddc",
-  blue: "#99b9e6",
+  darkBlue: primaries[8],
+  blue: primaries[10],
 
-  darkMagenta: "#d5a9c3",
-  magenta: "#c6b3da",
+  darkMagenta: "#a498e9",
+  magenta: "#b7aded",
 
-  darkCyan: "#679980",
-  cyan: "#85ad9f",
+  darkCyan: "#6ac779",
+  cyan: "#88dc96",
 
-  lightGray: primaries[9],
+  lightGray: primaries[8],
   white: primaries[11],
 };
 
@@ -67,12 +67,12 @@ const semantics: Theme.Semantics = {
     secondary: {
       dark: primaries[3],
       main: primaries[4],
-      light: primaries[7],
+      light: primaries[5],
     },
-    active: primaries[5],
+    active: primaries[3],
     match: {
-      active: primaries[3],
-      passive: primaries[4],
+      active: primaries[2],
+      passive: primaries[3],
     },
     diff: {
       add: palette.green,
@@ -83,18 +83,18 @@ const semantics: Theme.Semantics = {
   },
   fg: {
     primary: {
-      dark: primaries[10],
-      main: primaries[11],
-      light: primaries[12],
+      dark: primaries[9], // Was primaries[10] in Lua
+      main: primaries[10], // Was primaries[11] in Lua
+      light: primaries[11], // Was primaries[12] in Lua
     },
     secondary: {
-      dark: primaries[7],
-      main: primaries[8],
-      light: primaries[9],
+      dark: primaries[6], // Was primaries[7] in Lua
+      main: primaries[7], // Was primaries[8] in Lua
+      light: primaries[8], // Was primaries[9] in Lua
     },
-    active: palette.green,
-    invert: primaries[2],
-    neutral: primaries[6],
+    active: palette.cyan,
+    invert: primaries[1], // Was primaries[2] in Lua
+    neutral: primaries[5], // Was primaries[6] in Lua
     diff: {
       add: palette.green,
       delete: palette.red,
