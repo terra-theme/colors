@@ -28,8 +28,8 @@ const getFileTypes = (templatesDir: string): string[] => {
 };
 
 const convertTheme = (theme: Theme.Definition, template: string) => {
-  const templatsDir = config.dirs.templates;
-  const templatePath = path.join(templatsDir, `${template}.ejs`);
+  const templatesDir = config.dirs.templates;
+  const templatePath = path.join(templatesDir, `${template}.ejs`);
   const templateContent = fs.readFileSync(templatePath, "utf-8");
   return ejs.render(templateContent, { theme });
 };
@@ -45,8 +45,8 @@ const main = async () => {
 
     fileTypes.forEach(ft => {
       const output = convertTheme(theme, ft);
-      const distDir = config.dirs.dist;
-      const platformDir = path.join(distDir, ft);
+      const ftDir = config.dirs.ft;
+      const platformDir = path.join(ftDir, ft);
 
       if (!fs.existsSync(platformDir)) {
         fs.mkdirSync(platformDir, { recursive: true });
