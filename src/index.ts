@@ -6,15 +6,31 @@ import ejs from "ejs";
 import { config } from "./config";
 import * as Theme from "./types/theme";
 
-/** Dynamically imports all available themes.*/
+/** Recursively gets all theme files from collections */
+const getThemeFiles = (dir: string): string[] => {
+  const files: string[] = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...getThemeFiles(fullPath));
+    } else if (entry.isFile() && !entry.name.startsWith('ui_') && !entry.name.startsWith('syntax_')) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+};
+
+/** Dynamically imports all available themes from collections */
 const getThemes = async (): Promise<Theme.Definition[]> => {
   const themes: Theme.Definition[] = [];
   const themesDir = config.dirs.themes;
+  const themeFiles = getThemeFiles(themesDir);
 
-  const files = fs.readdirSync(themesDir);
-
-  for (const file of files) {
-    const theme = await import(path.join(themesDir, file));
+  for (const file of themeFiles) {
+    const theme = await import(file);
     themes.push(theme.default);
   }
 
