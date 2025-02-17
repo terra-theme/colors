@@ -1,10 +1,11 @@
 import * as path from "path";
 
-const config = {
-  templatesDir: path.join(__dirname, "templates"),
-  themesDir: path.join(__dirname, "themes"),
-  outputDir: path.join(__dirname, "..", "dist", "themes"),
-  outputFileExtension: ".yml",
-};
+import { Config } from "./types/config";
 
-export default config;
+export const config: Config = {
+  dirs: {
+    templates: path.join(__dirname, "templates"),
+    themes: path.join(__dirname, "themes"),
+    ft: path.join(__dirname, "..", "ft")
+  }
+};
