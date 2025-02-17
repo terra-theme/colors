@@ -88,7 +88,6 @@ M.ui = {
 
 ---@class BlackAtom.Theme.Syntax
 M.syntax = {
-    default = "<%= theme.syntax.default %>",
     variable = {
         default = "<%= theme.syntax.variable.default %>",
         builtin = "<%= theme.syntax.variable.builtin %>",
@@ -104,7 +103,7 @@ M.syntax = {
     },
     string = {
         default = "<%= theme.syntax.string.default %>",
-        documentation = "<%= theme.syntax.string.documentation %>",
+        doc = "<%= theme.syntax.string.documentation %>",
         regexp = "<%= theme.syntax.string.regexp %>",
         escape = "<%= theme.syntax.string.escape %>"
     },
@@ -144,12 +143,10 @@ M.syntax = {
     },
     comment = {
         default = "<%= theme.syntax.comment.default %>",
-        documentation = "<%= theme.syntax.comment.documentation %>"
+        doc = "<%= theme.syntax.comment.documentation %>"
     },
     markup = {
-        default = "<%= theme.syntax.markup.default %>",
         heading = {
-            default = "<%= theme.syntax.markup.heading.default %>",
             h1 = "<%= theme.syntax.markup.heading.h1 %>",
             h2 = "<%= theme.syntax.markup.heading.h2 %>",
             h3 = "<%= theme.syntax.markup.heading.h3 %>",
@@ -160,35 +157,22 @@ M.syntax = {
         strong = "<%= theme.syntax.markup.strong %>",
         italic = "<%= theme.syntax.markup.italic %>",
         strikethrough = "<%= theme.syntax.markup.strikethrough %>",
-        underline = "<%= theme.syntax.markup.underline %>",
         quote = "<%= theme.syntax.markup.quote %>",
         math = "<%= theme.syntax.markup.math %>",
-        link = {
-            default = "<%= theme.syntax.markup.link.default %>",
-            label = "<%= theme.syntax.markup.link.label %>",
-            url = "<%= theme.syntax.markup.link.url %>"
-        },
+        link = "<%= theme.syntax.markup.link%>",
         code = {
-            default = "<%= theme.syntax.markup.code.default %>",
-            inline = "<%= theme.syntax.markup.code.inline %>",
-            block = "<%= theme.syntax.markup.code.block %>",
+            fg = "<%= theme.syntax.markup.code.fg %>",
+            bg = "<%= theme.syntax.markup.code.bg %>",
         },
         list = {
             default = "<%= theme.syntax.markup.list.default %>",
             checked =  "<%= theme.syntax.markup.list.checked %>",
-            listUnchecked = "<%= theme.syntax.markup.list.listUnchecked %>"
+            unchecked = "<%= theme.syntax.markup.list.unchecked %>"
         },
-    },
-    diff = {
-        plus = "<%= theme.syntax.diff.plus %>",
-        minus = "<%= theme.syntax.diff.minus %>",
-        delta = "<%= theme.syntax.diff.delta %>",
-        text = "<%= theme.syntax.diff.text %>"
     },
     tag = {
         default = "<%= theme.syntax.tag.default %>",
         builtin = "<%= theme.syntax.tag.builtin %>",
-        custom = "<%= theme.syntax.tag.custom %>",
         attribute = "<%= theme.syntax.tag.attribute %>",
         delimiter = "<%= theme.syntax.tag.delimiter %>"
     }

@@ -3,7 +3,7 @@ local M = {}
 ---@class BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-engineering",
-    label = "Black Atom - Engineering",
+    label = "Black Atom - Default [ENG]",
     appearance = "dark",
     status = "release",
     collection = {
@@ -48,89 +48,78 @@ M.palette = {
     white = "#d0e0d8",
 }
 
----@class BlackAtom.Theme.Semantics
-M.semantics = {
+---@class BlackAtom.Theme.UI
+M.ui = {
     bg = {
-        primary = {
-            dark = "#040505",
-            main = "#0e1110",
-            light = "#181b19",
-        },
-        secondary = {
-            dark = "#1d201e",
-            main = "#3e4441",
-            light = "#565f59",
-        },
+        default = "#181b19",
+        panel = "#0e1110",
+        float = "#0e1110",
         active = "#1d201e",
-        match = {
-            active = "#181b19",
-            passive = "#1d201e",
-        },
-        diff = {
-            add = "#a0ce7d",
-            delete = "#a6a1df",
-            change = "#c4d4cc",
-            text = "#9fafa7",
-        },
+        disabled = "#565f59",
+        hover = "#1d201e",
+        selection = "#3e4441",
+        search = "#3e4441",
+        contrast = "#d0e0d8",
+        negative = "#a6a1df",
+        warn = "#9BE197",
+        info = "#c4d4cc",
+        hint = "#abbbb3",
+        positive = "#a0ce7d",
+        add = "#a0ce7d",
+        delete = "#a6a1df",
+        modify = "#c4d4cc",
     },
     fg = {
-        primary = {
-            dark = "#abbbb3",
-            main = "#c4d4cc",
-            light = "#d0e0d8",
-        },
-        secondary = {
-            dark = "#606a65",
-            main = "#79857f",
-            light = "#9fafa7",
-        },
-        active = "#88dc96",
-        invert = "#0e1110",
-        neutral = "#565f59",
-        diff = {
-            add = "#a0ce7d",
-            delete = "#a6a1df",
-            change = "#c4d4cc",
-            text = "#9fafa7",
-        },
+        default = "#d0e0d8",
+        subtle = "#abbbb3",
+        accent = "#9BE197",
+        disabled = "#79857f",
+        contrast = "#181b19",
+        negative = "#a6a1df",
+        warn = "#9BE197",
+        info = "#c4d4cc",
+        hint = "#abbbb3",
+        positive = "#a0ce7d",
+        add = "#a0ce7d",
+        delete = "#a6a1df",
+        modify = "#c4d4cc",
     },
 }
 
 ---@class BlackAtom.Theme.Syntax
 M.syntax = {
-    default = "#c4d4cc",
     variable = {
         default = "#c4d4cc",
         builtin = "#c4d4cc",
         parameter = "#abbbb3",
-        member = "#c4d4cc"
+        member = "#9fafa7"
     },
     constant = {
-        default = "#abbbb3",
-        builtin = "#abbbb3",
+        default = "#c4d4cc",
+        builtin = "#9891d6",
     },
     module = {
         default = "#9fafa7",
     },
     string = {
         default = "#a0ce7d",
-        documentation = "#88dc96",
-        regexp = "#abbbb3",
+        doc = "",
+        regexp = "#a6a1df",
         escape = "#a6a1df"
     },
     boolean = {
-        default = "#abbbb3"
+        default = "#93c270"
     },
     number = {
-        default = "#abbbb3"
+        default = "#93c270"
     },
     type = {
         default = "#88dc96",
         builtin = "#6ac779"
     },
     attribute = {
-        default = "#88dc96",
-        builtin = "#88dc96"
+        default = "#abbbb3",
+        builtin = "#abbbb3"
     },
     func = {
         default = "#9BE197",
@@ -144,62 +133,47 @@ M.syntax = {
         default = "#b7aded"
     },
     keyword = {
-        default = "#a6a1df"
+        default = "#b7aded"
     },
     punctuation = {
-        default = "#c4d4cc",
-        delimiter = "#c4d4cc",
-        bracket = "#c4d4cc",
-        special = "#88dc96"
+        default = "#9fafa7",
+        delimiter = "#9fafa7",
+        bracket = "#9fafa7",
+        special = "#9fafa7"
     },
     comment = {
         default = "#565f59",
-        documentation = "#606a65"
+        doc = ""
     },
     markup = {
-        default = "#c4d4cc",
         heading = {
-            default = "#abbbb3",
-            h1 = "#abbbb3",
-            h2 = "#abbbb3",
-            h3 = "#abbbb3",
-            h4 = "#abbbb3",
-            h5 = "#abbbb3",
-            h6 = "#abbbb3",
+            h1 = "#9BE197",
+            h2 = "#9BE197",
+            h3 = "#9BE197",
+            h4 = "#9fafa7",
+            h5 = "#9fafa7",
+            h6 = "#9fafa7",
         },
-        strong = "#c4d4cc",
-        italic = "#c4d4cc",
-        strikethrough = "#c4d4cc",
-        underline = "#c4d4cc",
-        quote = "#c4d4cc",
-        math = "#c4d4cc",
-        link = {
-            default = "#c4d4cc",
-            label = "#a0ce7d",
-            url = "#c4d4cc"
-        },
+        strong = "#9BE197",
+        italic = "#9BE197",
+        strikethrough = "#9BE197",
+        quote = "#a0ce7d",
+        math = "#93c270",
+        link = "#a0ce7d",
         code = {
-            default = "#a0ce7d",
-            inline = "#a0ce7d",
-            block = "#a0ce7d",
+            fg = "#565f59",
+            bg = "#181b19",
         },
         list = {
-            default = "#c4d4cc",
-            checked =  "#88dc96",
-            listUnchecked = ""
+            default = "#9fafa7",
+            checked =  "#a0ce7d",
+            unchecked = "#9fafa7"
         },
     },
-    diff = {
-        plus = "#0e1110",
-        minus = "#a6a1df",
-        delta = "#c4d4cc",
-        text = ""
-    },
     tag = {
-        default = "#c4d4cc",
+        default = "#9BE197",
         builtin = "#abbbb3",
-        custom = "#abbbb3",
-        attribute = "#c4d4cc",
+        attribute = "#9fafa7",
         delimiter = "#abbbb3"
     }
 }

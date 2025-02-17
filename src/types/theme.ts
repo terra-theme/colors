@@ -201,6 +201,9 @@ interface Syntax {
       checked: HexColor;
       unchecked: HexColor;
     };
+    strong: HexColor;
+    italic: HexColor;
+    strikethrough: HexColor;
     quote: HexColor;
     math: HexColor;
     link: HexColor;
