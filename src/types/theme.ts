@@ -5,21 +5,32 @@ type MetaKey =
   | "black-atom-operations"
   | "black-atom-medical"
   | "black-atom-research"
+  | "black-atom-jpn-koyo-yoru"
+  | "black-atom-jpn-koyo-hiru"
+  | "black-atom-jpn-tsuki-yoru"
+  | "black-atom-crbn-null"
+  | "black-atom-crbn-supr"
+  | "black-atom-terra-spring-day"
+  | "black-atom-terra-spring-night"
+  | "black-atom-terra-fall-day"
+  | "black-atom-terra-fall-night"
+  | "black-atom-terra-summer-day"
+  | "black-atom-terra-summer-night"
+  | "black-atom-terra-winter-day"
+  | "black-atom-terra-winter-night"
 
-type MetaLabel =
-  | "Black Atom - Engineering"
-  | "Black Atom - Operations"
-  | "Black Atom - Research"
-  | "Black Atom - Medical"
+type CollectionKey = "default" | "terra" | "jpn" | "crbn"
+
+type CollectionLabel = string
 
 interface Meta {
   key: MetaKey;
-  label: MetaLabel;
+  label: string;
   appearance: "light" | "dark";
   status: "development" | "beta" | "release";
   collection: {
-    key: "default";
-    label: "Default";
+    key: CollectionKey;
+    label: CollectionLabel;
   };
 }
 
@@ -57,42 +68,45 @@ interface Palette {
   white: HexColor;
 }
 
-interface Shades {
-  dark: HexColor;
-  main: HexColor;
-  light: HexColor;
-}
-
-interface Git {
-  text: HexColor;
+interface UIBackground {
+  default: HexColor;
+  panel: HexColor;
+  float: HexColor;
+  active: HexColor;
+  disabled: HexColor;
+  hover: HexColor;
+  selection: HexColor;
+  search: HexColor;
+  contrast: HexColor;
+  negative: HexColor;
+  warn: HexColor;
+  info: HexColor;
+  hint: HexColor;
+  positive: HexColor;
   add: HexColor;
   delete: HexColor;
-  change: HexColor;
+  modify: HexColor;
 }
 
-interface Background {
-  primary: Shades;
-  secondary: Shades;
-  active: HexColor;
-  match: {
-    active: HexColor;
-    passive: HexColor;
-  };
-  diff: Git;
+interface UIForeground {
+  default: HexColor;
+  subtle: HexColor;
+  accent: HexColor;
+  disabled: HexColor;
+  contrast: HexColor;
+  negative: HexColor;
+  warn: HexColor;
+  info: HexColor;
+  hint: HexColor;
+  positive: HexColor;
+  add: HexColor;
+  delete: HexColor;
+  modify: HexColor;
 }
 
-interface Foreground {
-  primary: Shades;
-  secondary: Shades;
-  active: HexColor;
-  neutral: HexColor;
-  invert: HexColor;
-  diff: Git;
-}
-
-interface Semantics {
-  bg: Background;
-  fg: Foreground;
+interface UI {
+  bg: UIBackground;
+  fg: UIForeground;
 }
 
 /** Inspired by :h treesitter-highlight-groups */
@@ -610,8 +624,18 @@ interface Definition {
   meta: Meta;
   primaries: Primaries;
   palette: Palette;
-  semantics: Semantics;
+  ui: UI;
   syntax: Syntax;
 }
 
-export { Meta, MetaKey, MetaLabel, Primaries, Palette, Semantics, Syntax, Definition };
+export { 
+  Meta, 
+  MetaKey, 
+  CollectionKey,
+  CollectionLabel,
+  Primaries, 
+  Palette, 
+  UI, 
+  Syntax, 
+  Definition 
+};
