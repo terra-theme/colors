@@ -57,50 +57,40 @@ const palette: Theme.Palette = {
   white: primaries[11]
 };
 
-const semantics: Theme.Semantics = {
+const ui: Theme.UI = {
   bg: {
-    primary: {
-      dark: primaries[0],
-      main: primaries[1],
-      light: primaries[2]
-    },
-    secondary: {
-      dark: primaries[3],
-      main: primaries[4],
-      light: primaries[5]
-    },
+    default: primaries[2],
+    panel: primaries[1],
+    float: primaries[1],
     active: primaries[3],
-    match: {
-      active: primaries[2],
-      passive: primaries[3]
-    },
-    diff: {
-      add: palette.green,
-      delete: palette.red,
-      change: palette.blue,
-      text: palette.darkBlue
-    }
+    disabled: primaries[5],
+    hover: primaries[3],
+    selection: primaries[4],
+    search: primaries[4],
+    contrast: primaries[11],
+    negative: palette.red,
+    warn: palette.yellow,
+    info: palette.blue,
+    hint: palette.darkYellow,
+    positive: palette.green,
+    add: palette.green,
+    delete: palette.red,
+    modify: palette.blue,
   },
   fg: {
-    primary: {
-      dark: primaries[9],
-      main: primaries[10],
-      light: primaries[11]
-    },
-    secondary: {
-      dark: primaries[6],
-      main: primaries[7],
-      light: primaries[8]
-    },
-    active: palette.cyan,
-    invert: primaries[1],
-    neutral: primaries[5],
-    diff: {
-      add: palette.green,
-      delete: palette.red,
-      change: palette.blue,
-      text: palette.darkBlue
-    }
+    default: primaries[11],
+    subtle: primaries[9],
+    disabled: primaries[7],
+    accent: palette.yellow,
+    contrast: primaries[2],
+    negative: palette.red,
+    warn: palette.yellow,
+    info: palette.blue,
+    hint: palette.darkYellow,
+    positive: palette.green,
+    add: palette.green,
+    delete: palette.red,
+    modify: palette.blue,
   }
 };
 
@@ -215,7 +205,7 @@ const theme: Theme.Definition = {
   meta,
   primaries,
   palette,
-  semantics,
+  ui,
   syntax
 };
 
