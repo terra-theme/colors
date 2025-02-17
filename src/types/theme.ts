@@ -5,19 +5,12 @@ type MetaKey =
   | "black-atom-operations"
   | "black-atom-medical"
   | "black-atom-research"
-  | "terra-spring-day"
-  | "terra-spring-night"
-  | "terra-summer-day"
-  | "terra-summer-night"
-  | "terra-winter-day"
-  | "terra-winter-night";
 
 type MetaLabel =
   | "Black Atom - Engineering"
   | "Black Atom - Operations"
   | "Black Atom - Research"
   | "Black Atom - Medical"
-  | "Terra - Spring Night";
 
 interface Meta {
   key: MetaKey;
@@ -25,8 +18,8 @@ interface Meta {
   appearance: "light" | "dark";
   status: "development" | "beta" | "release";
   collection: {
-    key: "black_atom" | "terra";
-    label: "Black Atom" | "Terra";
+    key: "default";
+    label: "Default";
   };
 }
 

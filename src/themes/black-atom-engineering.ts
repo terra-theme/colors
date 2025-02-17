@@ -6,8 +6,8 @@ const meta: Theme.Meta = {
   appearance: "dark",
   status: "release",
   collection: {
-    key: "black_atom",
-    label: "Black Atom"
+    key: "default",
+    label: "Default"
   }
 };
 

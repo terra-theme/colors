@@ -7,8 +7,8 @@ M.meta = {
     appearance = "light",
     status = "release",
     collection = {
-        key = "black_atom",
-        label = "Black Atom",
+        key = "default",
+        label = "Default",
     },
 }
 
