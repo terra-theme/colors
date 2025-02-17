@@ -30,9 +30,20 @@ interface Meta {
   };
 }
 
-interface Primaries {
-  [index: number]: HexColor;
-}
+type Primaries = [
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+    HexColor,
+]
 
 interface Palette {
   black: HexColor;
