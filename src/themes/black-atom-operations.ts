@@ -114,7 +114,7 @@ const syntax: Theme.Syntax = {
   },
   string: {
     default: palette.green,
-    documentation: palette.cyan,
+    doc: palette.cyan,
     regexp: palette.darkYellow,
     escape: palette.red
   },

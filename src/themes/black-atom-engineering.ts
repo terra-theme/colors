@@ -2,7 +2,7 @@ import * as Theme from "../types/theme";
 
 const meta: Theme.Meta = {
   key: "black-atom-engineering",
-  label: "Black Atom - Engineering",
+  label: "Black Atom - Default [ENG]",
   appearance: "dark",
   status: "release",
   collection: {
@@ -75,7 +75,7 @@ const ui: Theme.UI = {
     positive: palette.green,
     add: palette.green,
     delete: palette.red,
-    modify: palette.blue,
+    modify: palette.blue
   },
   fg: {
     default: primaries[11],
@@ -90,44 +90,46 @@ const ui: Theme.UI = {
     positive: palette.green,
     add: palette.green,
     delete: palette.red,
-    modify: palette.blue,
+    modify: palette.blue
   }
 };
 
 const syntax: Theme.Syntax = {
-  default: semantics.fg.primary.main,
   variable: {
     default: palette.blue,
     builtin: palette.blue,
-    parameter: palette.darkYellow,
-    member: palette.blue
+    member: palette.darkBlue,
+    parameter: palette.darkYellow
   },
-  constant: {
-    default: palette.darkYellow,
-    builtin: palette.darkYellow
-  },
-  module: {
+  property: {
     default: palette.darkBlue
   },
   string: {
     default: palette.green,
-    documentation: palette.cyan,
-    regexp: palette.darkYellow,
+    doc: palette.green,
+    regexp: palette.red,
     escape: palette.red
   },
+  constant: {
+    default: primaries[10],
+    builtin: palette.darkRed
+  },
+  module: {
+    default: palette.darkBlue
+  },
   boolean: {
-    default: palette.darkYellow
+    default: palette.darkGreen
   },
   number: {
-    default: palette.darkYellow
+    default: palette.darkGreen
   },
   type: {
     default: palette.cyan,
     builtin: palette.darkCyan
   },
   attribute: {
-    default: palette.cyan,
-    builtin: palette.cyan
+    default: palette.darkYellow,
+    builtin: palette.darkYellow
   },
   func: {
     default: palette.yellow,
@@ -137,67 +139,56 @@ const syntax: Theme.Syntax = {
   constructor: {
     default: palette.yellow
   },
+  keyword: {
+    default: palette.magenta,
+    import: palette.red,
+    export: palette.red
+  },
   operator: {
     default: palette.magenta
   },
-  keyword: {
-    default: palette.red
-  },
   punctuation: {
-    default: semantics.fg.primary.main,
-    delimiter: semantics.fg.primary.main,
-    bracket: semantics.fg.primary.main,
-    special: palette.cyan
+    default: palette.lightGray,
+    delimiter: primaries[8],
+    bracket: palette.lightGray,
+    special: palette.lightGray
   },
   comment: {
-    default: semantics.fg.neutral,
-    documentation: semantics.fg.secondary.dark
+    default: palette.gray,
+    doc: palette.darkGreen,
+    todo: palette.green,
+    error: palette.red,
+    warn: palette.yellow,
+    info: palette.blue,
+    hint: palette.darkYellow
   },
   markup: {
-    default: semantics.fg.primary.main,
     heading: {
-      default: palette.darkYellow,
-      h1: palette.darkYellow,
-      h2: palette.darkYellow,
-      h3: palette.darkYellow,
-      h4: palette.darkYellow,
-      h5: palette.darkYellow,
-      h6: palette.darkYellow
-    },
-    strong: semantics.fg.primary.main,
-    italic: semantics.fg.primary.main,
-    strikethrough: semantics.fg.primary.main,
-    underline: semantics.fg.primary.main,
-    quote: semantics.fg.primary.main,
-    math: semantics.fg.primary.main,
-    link: {
-      default: palette.blue,
-      label: palette.green,
-      url: palette.blue
-    },
-    code: {
-      default: palette.green,
-      inline: palette.green,
-      block: palette.green
+      h1: palette.yellow,
+      h2: palette.yellow,
+      h3: palette.yellow,
+      h4: palette.lightGray,
+      h5: palette.lightGray,
+      h6: palette.lightGray
     },
     list: {
-      default: semantics.fg.primary.main,
-      checked: semantics.fg.active,
-      unchecked: semantics.fg.neutral
+      default: palette.lightGray,
+      checked: palette.green,
+      unchecked: palette.lightGray
+    },
+    quote: palette.green,
+    math: palette.darkGreen,
+    link: palette.green,
+    code: {
+      fg: palette.gray,
+      bg: palette.black
     }
   },
-  diff: {
-    neutral: semantics.fg.diff.text,
-    plus: semantics.fg.invert,
-    minus: semantics.fg.diff.delete,
-    delta: semantics.fg.diff.change
-  },
   tag: {
-    default: semantics.fg.primary.main,
+    default: palette.yellow,
     builtin: palette.darkYellow,
-    custom: palette.darkYellow,
-    attribute: semantics.fg.primary.main,
-    delimiter: palette.darkYellow
+    attribute: primaries[8],
+    delimiter: primaries[9]
   }
 };
 
