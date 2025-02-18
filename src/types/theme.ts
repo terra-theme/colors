@@ -1,4 +1,4 @@
-import { HexColor } from "./color";
+import { HexColor } from "./color.ts";
 
 type ThemeKey =
     | "black-atom-engineering"
@@ -222,7 +222,7 @@ interface Definition {
     syntax: Syntax;
 }
 
-export {
+export type {
     CollectionKey,
     CollectionLabel,
     Definition,
@@ -230,6 +230,6 @@ export {
     Palette,
     Primaries,
     Syntax,
-    ThemeKey as MetaKey,
+    ThemeKey,
     UI,
 };
