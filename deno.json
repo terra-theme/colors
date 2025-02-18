@@ -1,0 +1,18 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "version": "1.0.0",
+  "bin": {
+    "black-atom-core": "./src/cli.ts"
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 4,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve"
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.0.8"
+  }
+}

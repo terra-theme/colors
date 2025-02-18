@@ -1,11 +1,10 @@
-import * as path from "path";
+import type { Config } from "./types/config.ts";
+import { join } from "@std/path";
 
-import { Config } from "./types/config";
+const cwd = Deno.cwd();
 
 export const config: Config = {
-  dirs: {
-    templates: path.join(__dirname, "templates"),
-    themes: path.join(__dirname, "themes"),
-    ft: path.join(__dirname, "..", "ft")
-  }
+    dir: {
+        themes: join(cwd, "src", "themes"),
+    },
 };
