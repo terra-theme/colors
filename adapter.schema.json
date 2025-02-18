@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Black Atom Adapter Configuration",
+  "description": "Configuration schema for Black Atom theme adapters",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "The JSON Schema URL"
+    },
+    "black-atom-corp-eng": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-corp-ops": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-corp-med": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-corp-res": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-jpn-koyo-yoru": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-jpn-koyo-hiru": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-jpn-tsuki-yoru": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-crbn-null": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-crbn-supr": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-spring-day": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-spring-night": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-fall-day": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-fall-night": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-summer-day": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-summer-night": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-winter-day": { "$ref": "#/$defs/templateConfig" },
+    "black-atom-terra-winter-night": { "$ref": "#/$defs/templateConfig" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "templateConfig": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "string",
+              "description": "Path to a single template file"
+            }
+          },
+          "required": ["template"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "templates": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Path to a template file"
+              },
+              "minItems": 1
+            }
+          },
+          "required": ["templates"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

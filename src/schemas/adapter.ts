@@ -40,5 +40,19 @@ const templateConfigSchema = baseTemplateConfig.pipe(
     ]),
 );
 
-export const adapterConfigSchema = z.record(themeKeySchema, templateConfigSchema);
+// Create a discriminated union for the record keys
+const recordKeySchema = z.union([
+    z.literal("$schema"),
+    themeKeySchema,
+]);
+
+// Create the record with the union of possible values
+export const adapterConfigSchema = z.record(
+    recordKeySchema,
+    z.union([
+        z.string(), // for $schema
+        templateConfigSchema, // for theme configurations
+    ]),
+);
+
 export type AdapterConfig = z.infer<typeof adapterConfigSchema>;
