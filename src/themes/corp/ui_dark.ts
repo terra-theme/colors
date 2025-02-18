@@ -1,4 +1,4 @@
-import { Palette, Primaries, UI } from "../../types/theme";
+import { Palette, Primaries, UI } from "../../types/theme.ts";
 
 export default function (primaries: Primaries, palette: Palette): UI {
     return {

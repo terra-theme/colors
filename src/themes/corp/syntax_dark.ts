@@ -1,4 +1,4 @@
-import { Palette, Primaries, Syntax } from "../../types/theme";
+import { Palette, Primaries, Syntax } from "../../types/theme.ts";
 
 export default function (primaries: Primaries, palette: Palette): Syntax {
     return {
