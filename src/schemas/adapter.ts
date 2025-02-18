@@ -14,6 +14,5 @@ const templateConfigSchema = z.union([
     }),
 ]);
 
-export const adapterConfigSchema = z.object({}).catchall(templateConfigSchema).and(
-    z.record(themeKeySchema, templateConfigSchema),
-);
+export const adapterConfigSchema = z.record(themeKeySchema, templateConfigSchema);
+export type AdapterConfig = z.infer<typeof adapterConfigSchema>;

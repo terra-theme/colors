@@ -1,7 +1,6 @@
 import { parse as parseYml } from "@std/yaml";
-import { adapterConfigSchema } from "./schemas/adapter.ts";
+import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
 import { ZodError } from "@zod";
-import type { AdapterConfig } from "./types/adapter.ts";
 
 function formatZodError(error: ZodError) {
     return error.errors.map((err) => {
@@ -10,7 +9,6 @@ function formatZodError(error: ZodError) {
                 err.options.map((opt) => `  - ${opt}`).join("\n")
             }`;
         }
-        console.log("DEBUG(cli.ts | formatZodError): error", error);
         return `${err.path.join(".")}: ${err.message}`;
     }).join("\n\n");
 }
