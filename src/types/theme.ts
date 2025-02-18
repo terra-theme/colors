@@ -29,10 +29,10 @@ type CollectionLabel = string;
 interface Meta {
     key: ThemeKey;
     label:
-        | "Black Atom - Default [ENG]"
-        | "Black Atom - Default [OPS]"
-        | "Black Atom - Default [MED]"
-        | "Black Atom - Default [RES]";
+        | "Black Atom - Corp [ENG]"
+        | "Black Atom - Corp [OPS]"
+        | "Black Atom - Corp [MED]"
+        | "Black Atom - Corp [RES]";
     appearance: "light" | "dark";
     status: "development" | "beta" | "release";
     collection: {

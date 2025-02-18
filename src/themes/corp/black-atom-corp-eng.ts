@@ -1,16 +1,16 @@
-import * as Theme from "../../types/theme";
+import * as Theme from "../../types/theme.ts";
 
-import syntax_dark from "./syntax_dark";
-import ui_dark from "./ui_dark";
+import syntax_dark from "./syntax_dark.ts";
+import ui_dark from "./ui_dark.ts";
 
 const meta: Theme.Meta = {
-    key: "black-atom-engineering",
-    label: "Black Atom - Default [ENG]",
+    key: "black-atom-corp-eng",
+    label: "Black Atom - Corp [ENG]",
     appearance: "dark",
     status: "release",
     collection: {
-        key: "default",
-        label: "Default",
+        key: "corp",
+        label: "Corporate",
     },
 };
 
