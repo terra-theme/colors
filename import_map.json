@@ -1,7 +1,6 @@
 {
   "imports": {
     "@std/path": "jsr:@std/path@^1.0.8",
-    "@std/yaml": "jsr:@std/yaml@1.0.5",
     "@zod": "https://deno.land/x/zod@v3.24.2/mod.ts"
   }
 }
