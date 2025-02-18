@@ -2,7 +2,8 @@ import { config } from "./config.ts";
 
 if (import.meta.main) {
     const command = Deno.args[0];
-
+    const cwd = Deno.cwd();
+    console.log("DEBUG(cli.ts): cwd", cwd);
     const themesPath = config.dir.themes;
     console.log("DEBUG(cli.ts): themesPath", themesPath);
 

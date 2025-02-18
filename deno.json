@@ -1,8 +1,8 @@
 {
   "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
   "version": "1.0.0",
-  "bin": {
-    "black-atom-core": "./src/cli.ts"
+  "tasks": {
+    "install": "deno install --global --allow-read --import-map=import_map.json -f -n black-atom-core src/cli.ts"
   },
   "fmt": {
     "useTabs": false,
@@ -12,7 +12,5 @@
     "singleQuote": false,
     "proseWrap": "preserve"
   },
-  "imports": {
-    "@std/path": "jsr:@std/path@^1.0.8"
-  }
+  "importMap": "./import_map.json"
 }
