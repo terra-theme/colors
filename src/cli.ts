@@ -11,13 +11,17 @@ async function getAdapterConfig(): Promise<AdapterConfig> {
         return validatedConfig;
     } catch (error) {
         if (error instanceof Deno.errors.NotFound) {
-            console.error("Error: `adapter.yml` not found in current directory");
+            console.error(
+                colors.red(
+                    `Error: \`${config.adapterFileName}\` not found in current directory.`,
+                ),
+            );
             Deno.exit(1);
         }
 
         if (error instanceof z.ZodError) {
             console.error(
-                "Invalid adapter configuration!",
+                colors.red("Invalid adapter configuration!"),
                 error.issues,
             );
             Deno.exit(1);
@@ -33,17 +37,20 @@ if (import.meta.main) {
     switch (command) {
         case "generate": {
             const adapterConfig = await getAdapterConfig();
-            console.info(adapterConfig);
+            console.info(colors.green("  Adapter configuration loaded successfully:"));
+            console.log(adapterConfig);
             break;
         }
 
         default:
-            console.log(`
+            console.log(
+                colors.cyan(`
 Usage: black-atom-core <command>
 
 Commands:
-  generate    Generate theme files from templates
-`);
+  ${colors.yellow("generate")}    Generate theme files from templates
+`),
+            );
             Deno.exit(1);
     }
 }
