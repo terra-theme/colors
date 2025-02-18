@@ -1,7 +1,7 @@
 import * as z from "@zod";
-import { THEME_KEYS } from "../types/theme.ts";
+import { themeKeys } from "../types/theme.ts";
 
-const themeKeySchema = z.enum(THEME_KEYS);
+const themeKeySchema = z.enum(themeKeys);
 
 // First check the structure without validating the types
 const baseTemplateConfig = z.object({

@@ -1,6 +1,6 @@
 import { HexColor } from "./color.ts";
 
-export const THEME_KEYS = [
+export const themeKeys = [
     "black-atom-corp-eng",
     "black-atom-corp-ops",
     "black-atom-corp-med",
@@ -20,7 +20,7 @@ export const THEME_KEYS = [
     "black-atom-terra-winter-night",
 ] as const;
 
-type ThemeKey = typeof THEME_KEYS[number];
+type ThemeKey = typeof themeKeys[number];
 
 type CollectionKey = "corp" | "terra" | "jpn" | "crbn";
 
