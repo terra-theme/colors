@@ -1,25 +1,28 @@
 import { HexColor } from "./color.ts";
 
-type ThemeKey =
-    | "black-atom-engineering"
-    | "black-atom-operations"
-    | "black-atom-medical"
-    | "black-atom-research"
-    | "black-atom-jpn-koyo-yoru"
-    | "black-atom-jpn-koyo-hiru"
-    | "black-atom-jpn-tsuki-yoru"
-    | "black-atom-crbn-null"
-    | "black-atom-crbn-supr"
-    | "black-atom-terra-spring-day"
-    | "black-atom-terra-spring-night"
-    | "black-atom-terra-fall-day"
-    | "black-atom-terra-fall-night"
-    | "black-atom-terra-summer-day"
-    | "black-atom-terra-summer-night"
-    | "black-atom-terra-winter-day"
-    | "black-atom-terra-winter-night";
+export const THEME_KEYS = [
+    "black-atom-corp-eng",
+    "black-atom-corp-ops",
+    "black-atom-corp-med",
+    "black-atom-corp-res",
+    "black-atom-jpn-koyo-yoru",
+    "black-atom-jpn-koyo-hiru",
+    "black-atom-jpn-tsuki-yoru",
+    "black-atom-crbn-null",
+    "black-atom-crbn-supr",
+    "black-atom-terra-spring-day",
+    "black-atom-terra-spring-night",
+    "black-atom-terra-fall-day",
+    "black-atom-terra-fall-night",
+    "black-atom-terra-summer-day",
+    "black-atom-terra-summer-night",
+    "black-atom-terra-winter-day",
+    "black-atom-terra-winter-night",
+] as const;
 
-type CollectionKey = "default" | "terra" | "jpn" | "crbn";
+type ThemeKey = typeof THEME_KEYS[number];
+
+type CollectionKey = "corp" | "terra" | "jpn" | "crbn";
 
 type CollectionLabel = string;
 
