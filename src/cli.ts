@@ -1,10 +1,11 @@
 import * as z from "@zod";
 import { parse as parseYml } from "@std/yaml";
 import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
+import { config } from "./config.ts";
 
 async function getAdapterConfig(): Promise<AdapterConfig> {
     try {
-        const adapterConfig = await Deno.readTextFile("adapter.yml");
+        const adapterConfig = await Deno.readTextFile(config.adapterFileName);
         const parsedConfig = parseYml(adapterConfig);
         const validatedConfig = adapterConfigSchema.parse(parsedConfig);
 
