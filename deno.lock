@@ -1,10 +1,14 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@eta-dev/eta@3.5.0": "3.5.0",
     "jsr:@std/fmt@1.0.5": "1.0.5",
     "jsr:@std/path@^1.0.8": "1.0.8"
   },
   "jsr": {
+    "@eta-dev/eta@3.5.0": {
+      "integrity": "6b70827efc14c7cbf08498ac7a922ecab003641caf3852a6cb5b1b12ee58fb37"
+    },
     "@std/fmt@1.0.5": {
       "integrity": "0cfab43364bc36650d83c425cd6d99910fc20c4576631149f0f987eddede1a4d"
     },
@@ -30,6 +34,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@eta-dev/eta@3.5.0",
       "jsr:@std/fmt@1.0.5",
       "jsr:@std/path@^1.0.8"
     ]

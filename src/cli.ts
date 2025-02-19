@@ -1,7 +1,30 @@
 import * as z from "@zod";
 import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
 import { config } from "./config.ts";
-import log from "./log.ts";
+import log from "./lib/log.ts";
+import black_atom_corp_eng from "./themes/corp/black-atom-corp-eng.ts";
+import { processTemplate, writeOutput } from "./lib/template.ts";
+import { Definition, Key } from "./types/theme.ts";
+
+const themeMap: Record<Key, Definition | null> = {
+    "black-atom-corp-eng": black_atom_corp_eng,
+    "black-atom-corp-ops": null,
+    "black-atom-corp-med": null,
+    "black-atom-corp-res": null,
+    "black-atom-jpn-koyo-yoru": null,
+    "black-atom-jpn-koyo-hiru": null,
+    "black-atom-jpn-tsuki-yoru": null,
+    "black-atom-crbn-null": null,
+    "black-atom-crbn-supr": null,
+    "black-atom-terra-spring-day": null,
+    "black-atom-terra-spring-night": null,
+    "black-atom-terra-fall-day": null,
+    "black-atom-terra-fall-night": null,
+    "black-atom-terra-summer-day": null,
+    "black-atom-terra-summer-night": null,
+    "black-atom-terra-winter-day": null,
+    "black-atom-terra-winter-night": null,
+};
 
 async function getAdapterConfig(): Promise<AdapterConfig> {
     try {
@@ -23,14 +46,49 @@ async function getAdapterConfig(): Promise<AdapterConfig> {
     }
 }
 
+async function processThemeTemplates(themeKey: Key, templatePath: string | string[]) {
+    const theme = themeMap[themeKey];
+
+    if (!theme) {
+        log.error(`Theme "${themeKey}" not found`);
+        return;
+    }
+
+    const paths = Array.isArray(templatePath) ? templatePath : [templatePath];
+
+    for (const path of paths) {
+        try {
+            log.info(`Processing template: ${path}`);
+            const content = await processTemplate(theme, path);
+            await writeOutput(content, path);
+            log.success(`Generated: ${path.replace(".template.", ".")}`);
+        } catch (error) {
+            if (error instanceof Error) {
+                log.error(`Failed to process template ${path}: ${error.message}`);
+            }
+        }
+    }
+}
+
 if (import.meta.main) {
     const command = Deno.args[0];
 
     switch (command) {
         case "generate": {
             const adapterConfig = await getAdapterConfig();
-            log.success("Adapter configuration loaded successfully:");
-            console.dir(adapterConfig);
+            log.success("Adapter configuration loaded successfully");
+
+            for (const [themeKey, config] of Object.entries(adapterConfig)) {
+                if (themeKey === "$schema") continue;
+
+                if (typeof config === "object") {
+                    if (config.template) {
+                        await processThemeTemplates(themeKey as Key, config.template);
+                    } else if (config.templates) {
+                        await processThemeTemplates(themeKey as Key, config.templates);
+                    }
+                }
+            }
             break;
         }
 
