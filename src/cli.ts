@@ -1,29 +1,22 @@
 import * as z from "@zod";
 import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
 import { config } from "./config.ts";
+import * as colors from "@std/fmt/colors";
+import log from "./log.ts";
 
 async function getAdapterConfig(): Promise<AdapterConfig> {
     try {
         const adapterConfig = await Deno.readTextFile(config.adapterFileName);
-        const parsedConfig = JSON.parse(adapterConfig);
-        const validatedConfig = adapterConfigSchema.parse(parsedConfig);
-
-        return validatedConfig;
+        return adapterConfigSchema.parse(JSON.parse(adapterConfig));
     } catch (error) {
         if (error instanceof Deno.errors.NotFound) {
-            console.error(
-                colors.red(
-                    `Error: \`${config.adapterFileName}\` not found in current directory.`,
-                ),
-            );
+            log.error(`No \`${config.adapterFileName}\` found in current directory. Abort.`);
             Deno.exit(1);
         }
 
         if (error instanceof z.ZodError) {
-            console.error(
-                colors.red("Invalid adapter configuration!"),
-                error.issues,
-            );
+            log.error("Invalid adapter configuration!");
+            console.dir(error.issues);
             Deno.exit(1);
         }
 
@@ -37,20 +30,17 @@ if (import.meta.main) {
     switch (command) {
         case "generate": {
             const adapterConfig = await getAdapterConfig();
-            console.info(colors.green("  Adapter configuration loaded successfully:"));
-            console.log(adapterConfig);
+            log.success("Adapter configuration loaded successfully:");
+            console.dir(adapterConfig);
             break;
         }
 
         default:
-            console.log(
-                colors.cyan(`
-Usage: black-atom-core <command>
+            log.info(`Usage: black-atom-core <command>
 
 Commands:
   ${colors.yellow("generate")}    Generate theme files from templates
-`),
-            );
+`);
             Deno.exit(1);
     }
 }
