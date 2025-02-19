@@ -28,6 +28,26 @@
   },
   "required": ["$schema"],
   "additionalProperties": false,
+  "minProperties": 2,
+  "anyOf": [
+    { "required": ["black-atom-corp-eng"] },
+    { "required": ["black-atom-corp-ops"] },
+    { "required": ["black-atom-corp-med"] },
+    { "required": ["black-atom-corp-res"] },
+    { "required": ["black-atom-jpn-koyo-yoru"] },
+    { "required": ["black-atom-jpn-koyo-hiru"] },
+    { "required": ["black-atom-jpn-tsuki-yoru"] },
+    { "required": ["black-atom-crbn-null"] },
+    { "required": ["black-atom-crbn-supr"] },
+    { "required": ["black-atom-terra-spring-day"] },
+    { "required": ["black-atom-terra-spring-night"] },
+    { "required": ["black-atom-terra-fall-day"] },
+    { "required": ["black-atom-terra-fall-night"] },
+    { "required": ["black-atom-terra-summer-day"] },
+    { "required": ["black-atom-terra-summer-night"] },
+    { "required": ["black-atom-terra-winter-day"] },
+    { "required": ["black-atom-terra-winter-night"] }
+  ],
   "$defs": {
     "templateConfig": {
       "type": "object",
