@@ -1,5 +1,5 @@
 import * as z from "@zod";
-import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
+import { AdapterConfig, adapterConfigSchema, TemplateConfig } from "./schemas/adapter.ts";
 import { config } from "./config.ts";
 import log from "./lib/log.ts";
 import black_atom_corp_eng from "./themes/corp/black-atom-corp-eng.ts";
@@ -46,7 +46,7 @@ async function getAdapterConfig(): Promise<AdapterConfig> {
     }
 }
 
-async function processThemeTemplates(themeKey: Key, templatePath: string | string[]) {
+async function processThemeTemplates(themeKey: Key, templatePath: TemplateConfig["templates"]) {
     const theme = themeMap[themeKey];
 
     if (!theme) {
@@ -54,9 +54,7 @@ async function processThemeTemplates(themeKey: Key, templatePath: string | strin
         return;
     }
 
-    const paths = Array.isArray(templatePath) ? templatePath : [templatePath];
-
-    for (const path of paths) {
+    for (const path of templatePath) {
         try {
             log.info(`Processing template: ${path}`);
             const content = await processTemplate(theme, path);
@@ -78,16 +76,10 @@ if (import.meta.main) {
             const adapterConfig = await getAdapterConfig();
             log.success("Adapter configuration loaded successfully");
 
-            for (const [themeKey, config] of Object.entries(adapterConfig)) {
-                if (themeKey === "$schema") continue;
+            const { $schema: _, ...configs } = adapterConfig;
 
-                if (typeof config === "object") {
-                    if (config.template) {
-                        await processThemeTemplates(themeKey as Key, config.template);
-                    } else if (config.templates) {
-                        await processThemeTemplates(themeKey as Key, config.templates);
-                    }
-                }
+            for (const [themeKey, config] of Object.entries(configs)) {
+                await processThemeTemplates(themeKey as Key, config.templates);
             }
             break;
         }
