@@ -78,7 +78,13 @@ if (import.meta.main) {
 
             const { $schema: _, ...configs } = adapterConfig;
 
-            for (const [themeKey, config] of Object.entries(configs)) {
+            const configEntries = Object.entries(configs);
+
+            if (configEntries.length === 0) {
+                log.warn("No theme keys defined!");
+            }
+
+            for (const [themeKey, config] of configEntries) {
                 await processThemeTemplates(themeKey as Key, config.templates);
             }
             break;
