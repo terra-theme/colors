@@ -1,7 +1,7 @@
 import * as z from "@zod";
 
-import { config } from "../config.ts";
-import { Key, ThemeMap } from "../types/theme.ts";
+import { Config, config } from "../config.ts";
+import { Key } from "../types/theme.ts";
 
 import { AdapterConfig, adapterConfigSchema, TemplateConfig } from "../lib/validate-adapter.ts";
 import log from "../lib/log.ts";
@@ -27,7 +27,7 @@ async function getAdapterConfig(): Promise<AdapterConfig> {
     }
 }
 
-export default async function (themeMap: ThemeMap) {
+export default async function (themeMap: Config["themeMap"]) {
     const adapterConfig = await getAdapterConfig();
     log.success("Adapter configuration loaded successfully");
 
