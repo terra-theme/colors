@@ -46,7 +46,7 @@ const recordKeySchema = z.union([
     themeKeySchema,
 ]);
 
-// Create the record with the union of possible values
+/** Validate the adapter configuration file */
 export const adapterConfigSchema = z.record(
     recordKeySchema,
     z.union([

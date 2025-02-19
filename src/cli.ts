@@ -1,7 +1,6 @@
 import * as z from "@zod";
 import { AdapterConfig, adapterConfigSchema } from "./schemas/adapter.ts";
 import { config } from "./config.ts";
-import * as colors from "@std/fmt/colors";
 import log from "./log.ts";
 
 async function getAdapterConfig(): Promise<AdapterConfig> {
@@ -35,12 +34,13 @@ if (import.meta.main) {
             break;
         }
 
-        default:
-            log.info(`Usage: black-atom-core <command>
+        case "-h":
+        case "--help":
+            log.menu();
+            break;
 
-Commands:
-  ${colors.yellow("generate")}    Generate theme files from templates
-`);
+        default:
+            log.menu();
             Deno.exit(1);
     }
 }

@@ -13,6 +13,13 @@ const log = {
     success: (message: string) => {
         console.log(colors.green(" " + message));
     },
+    menu: () => {
+        log.info(`Usage: black-atom-core <command>
+
+Commands:
+  ${colors.yellow("generate")}    Generate theme files from templates
+`);
+    },
 };
 
 export default log;
