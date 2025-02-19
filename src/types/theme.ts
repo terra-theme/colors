@@ -20,14 +20,14 @@ export const themeKeys = [
     "black-atom-terra-winter-night",
 ] as const;
 
-type ThemeKey = typeof themeKeys[number];
+type Key = typeof themeKeys[number];
 
 type CollectionKey = "corp" | "terra" | "jpn" | "crbn";
 
 type CollectionLabel = string;
 
 interface Meta {
-    key: ThemeKey;
+    key: Key;
     label:
         | "Black Atom - Corp [ENG]"
         | "Black Atom - Corp [OPS]"
@@ -229,10 +229,10 @@ export type {
     CollectionKey,
     CollectionLabel,
     Definition,
+    Key,
     Meta,
     Palette,
     Primaries,
     Syntax,
-    ThemeKey,
     UI,
 };
