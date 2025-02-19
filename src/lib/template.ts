@@ -1,6 +1,8 @@
 import { Eta } from "@eta";
 import { dirname } from "@std/path";
-import type { Definition } from "../types/theme.ts";
+import type { Definition, Key } from "../types/theme.ts";
+import log from "./log.ts";
+import { TemplateConfig } from "./validate-adapter.ts";
 
 // Initialize Eta with options
 const eta = new Eta({
@@ -10,18 +12,35 @@ const eta = new Eta({
     varName: "theme", // Use 'theme' as the variable name in templates
 });
 
-export async function processTemplate(themeDef: Definition, templatePath: string): Promise<string> {
-    try {
-        // Read template file
-        const template = await Deno.readTextFile(templatePath);
+export async function processThemeTemplates(
+    themeKey: Key,
+    templatePaths: TemplateConfig["templates"],
+    themeMap: Record<Key, Definition | null>,
+) {
+    const theme = themeMap[themeKey];
 
-        // Process template with Eta
-        return eta.renderString(template, themeDef);
-    } catch (error) {
-        if (error instanceof Deno.errors.NotFound) {
-            throw new Error(`Template file not found: ${templatePath}`);
+    if (!theme) {
+        log.error(`Theme "${themeKey}" not found`);
+        return;
+    }
+
+    for (const path of templatePaths) {
+        try {
+            log.info(`Processing template: ${path}`);
+
+            // Read and process template
+            const template = await Deno.readTextFile(path);
+            const content = eta.renderString(template, theme);
+
+            await writeOutput(content, path);
+            log.success(`Generated: ${path.replace(".template.", ".")}`);
+        } catch (error) {
+            if (error instanceof Deno.errors.NotFound) {
+                log.error(`Template file not found: ${path}`);
+            } else if (error instanceof Error) {
+                log.error(`Failed to process template ${path}: ${error.message}`);
+            }
         }
-        throw error;
     }
 }
 

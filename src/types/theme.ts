@@ -35,6 +35,9 @@ interface Meta {
     };
 }
 
+// NOTE: The `null` is only temporary until I have everything migrated
+type ThemeMap = Record<Key, Definition | null>;
+
 type Primaries = [
     HexColor,
     HexColor,
@@ -228,5 +231,6 @@ export type {
     Palette,
     Primaries,
     Syntax,
+    ThemeMap,
     UI,
 };
