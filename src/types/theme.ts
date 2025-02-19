@@ -32,7 +32,20 @@ interface Meta {
         | "Black Atom - Corp [ENG]"
         | "Black Atom - Corp [OPS]"
         | "Black Atom - Corp [MED]"
-        | "Black Atom - Corp [RES]";
+        | "Black Atom - Corp [RES]"
+        | "Black Atom - JPN - Koyo [Yoru]"
+        | "Black Atom - JPN - Koyo [Hiru]"
+        | "Black Atom - JPN - Tsuki [Yoru]"
+        | "Black Atom - CRBN - Null"
+        | "Black Atom - CRBN - Supr"
+        | "Black Atom - Terra - Spring [Day]"
+        | "Black Atom - Terra - Spring [Night]"
+        | "Black Atom - Terra - Fall [Day]"
+        | "Black Atom - Terra - Fall [Night]"
+        | "Black Atom - Terra - Summer [Day]"
+        | "Black Atom - Terra - Summer [Night]"
+        | "Black Atom - Terra - Winter [Day]"
+        | "Black Atom - Terra - Winter [Night]";
     appearance: "light" | "dark";
     status: "development" | "beta" | "release";
     collection: {
