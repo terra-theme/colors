@@ -2,18 +2,19 @@ import * as z from "@zod";
 import { AdapterConfig, adapterConfigSchema, TemplateConfig } from "./schemas/adapter.ts";
 import { config } from "./config.ts";
 import log from "./lib/log.ts";
+import { processTemplate, writeOutput } from "./lib/template.ts";
+import { Definition, Key } from "./types/theme.ts";
+
 import black_atom_corp_eng from "./themes/corp/black-atom-corp-eng.ts";
 import black_atom_jpn_koyo_yoru from "./themes/jpn/black-atom-jpn-koyo-yoru.ts";
 import black_atom_jpn_koyo_hiru from "./themes/jpn/black-atom-jpn-koyo-hiru.ts";
 import black_atom_jpn_tsuki_yoru from "./themes/jpn/black-atom-jpn-tsuki-yoru.ts";
-import { processTemplate, writeOutput } from "./lib/template.ts";
-import { Definition, Key } from "./types/theme.ts";
 
 const themeMap: Record<Key, Definition | null> = {
-    "black-atom-corp-eng": black_atom_corp_eng,
-    "black-atom-corp-ops": null,
-    "black-atom-corp-med": null,
-    "black-atom-corp-res": null,
+    "black-atom-corp-engineering": black_atom_corp_eng,
+    "black-atom-corp-operations": null,
+    "black-atom-corp-medical": null,
+    "black-atom-corp-research": null,
     "black-atom-jpn-koyo-yoru": black_atom_jpn_koyo_yoru,
     "black-atom-jpn-koyo-hiru": black_atom_jpn_koyo_hiru,
     "black-atom-jpn-tsuki-yoru": black_atom_jpn_tsuki_yoru,

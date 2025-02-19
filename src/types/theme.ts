@@ -1,51 +1,32 @@
+import { config } from "../config.ts";
 import { HexColor } from "./color.ts";
 
-export const themeKeys = [
-    "black-atom-corp-eng",
-    "black-atom-corp-ops",
-    "black-atom-corp-med",
-    "black-atom-corp-res",
-    "black-atom-jpn-koyo-yoru",
-    "black-atom-jpn-koyo-hiru",
-    "black-atom-jpn-tsuki-yoru",
-    "black-atom-crbn-null",
-    "black-atom-crbn-supr",
-    "black-atom-terra-spring-day",
-    "black-atom-terra-spring-night",
-    "black-atom-terra-fall-day",
-    "black-atom-terra-fall-night",
-    "black-atom-terra-summer-day",
-    "black-atom-terra-summer-night",
-    "black-atom-terra-winter-day",
-    "black-atom-terra-winter-night",
-] as const;
+type Key = typeof config.themeKeys[number];
 
-type Key = typeof themeKeys[number];
-
-type CollectionKey = "corp" | "terra" | "jpn" | "crbn";
+type CollectionKey = "corp" | "crbn" | "terra" | "jpn";
 
 type CollectionLabel = string;
 
 interface Meta {
     key: Key;
     label:
-        | "Black Atom - Corp [ENG]"
-        | "Black Atom - Corp [OPS]"
-        | "Black Atom - Corp [MED]"
-        | "Black Atom - Corp [RES]"
-        | "Black Atom - JPN - Koyo [Yoru]"
-        | "Black Atom - JPN - Koyo [Hiru]"
-        | "Black Atom - JPN - Tsuki [Yoru]"
-        | "Black Atom - CRBN - Null"
-        | "Black Atom - CRBN - Supr"
-        | "Black Atom - Terra - Spring [Day]"
-        | "Black Atom - Terra - Spring [Night]"
-        | "Black Atom - Terra - Fall [Day]"
-        | "Black Atom - Terra - Fall [Night]"
-        | "Black Atom - Terra - Summer [Day]"
-        | "Black Atom - Terra - Summer [Night]"
-        | "Black Atom - Terra - Winter [Day]"
-        | "Black Atom - Terra - Winter [Night]";
+        | "Black Atom - Corp Engineering"
+        | "Black Atom - Corp Operations"
+        | "Black Atom - Corp Medical"
+        | "Black Atom - Corp Research"
+        | "Black Atom - Carbon NULL"
+        | "Black Atom - Carbon SUPR"
+        | "Black Atom - JPN Koyo Yoru"
+        | "Black Atom - JPN Koyo Hiru"
+        | "Black Atom - JPN Tsuki Yoru"
+        | "Black Atom - Terra Spring Day"
+        | "Black Atom - Terra Spring Night"
+        | "Black Atom - Terra Fall Day"
+        | "Black Atom - Terra Fall Night"
+        | "Black Atom - Terra Summer Day"
+        | "Black Atom - Terra Summer Night"
+        | "Black Atom - Terra Winter Day"
+        | "Black Atom - Terra Winter Night";
     appearance: "light" | "dark";
     status: "development" | "beta" | "release";
     collection: {

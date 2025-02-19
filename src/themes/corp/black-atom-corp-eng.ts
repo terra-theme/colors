@@ -4,8 +4,8 @@ import syntax_dark from "./syntax_dark.ts";
 import ui_dark from "./ui_dark.ts";
 
 const meta: Theme.Meta = {
-    key: "black-atom-corp-eng",
-    label: "Black Atom - Corp [ENG]",
+    key: "black-atom-corp-engineering",
+    label: "Black Atom - Corp Engineering",
     appearance: "dark",
     status: "release",
     collection: {
