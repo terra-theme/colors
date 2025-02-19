@@ -1,5 +1,5 @@
 import * as z from "@zod";
-import { AdapterConfig, adapterConfigSchema, TemplateConfig } from "./schemas/adapter.ts";
+import { AdapterConfig, adapterConfigSchema, TemplateConfig } from "./lib/validate-adapter.ts";
 import { config } from "./config.ts";
 import log from "./lib/log.ts";
 import { processTemplate, writeOutput } from "./lib/template.ts";
