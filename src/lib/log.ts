@@ -9,6 +9,14 @@ export const icon = {
 
 const separator = ":: ";
 
+const logMenu = () => {
+    console.log(`Usage: black-atom-core <command>
+
+Commands:
+  ${colors.yellow("generate")}    Generate theme files from templates
+`);
+};
+
 const log = {
     error: (message: string) => {
         console.error(colors.red(icon.error + separator + message));
@@ -22,13 +30,7 @@ const log = {
     success: (message: string) => {
         console.log(colors.green(icon.success + separator + message));
     },
-    menu: () => {
-        log.info(`Usage: black-atom-core <command>
-
-Commands:
-  ${colors.yellow("generate")}    Generate theme files from templates
-`);
-    },
+    menu: logMenu,
 };
 
 export default log;
