@@ -10,6 +10,7 @@ const eta = new Eta({
     cache: true, // Enable caching for better performance
     autoEscape: false, // Don't escape HTML since we're not generating HTML
     varName: "theme", // Use 'theme' as the variable name in templates
+    autoTrim: false,
 });
 
 export async function processThemeTemplates(
