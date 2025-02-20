@@ -41,7 +41,7 @@ export const config: Config = {
     dir: {
         themes: join(cwd, "src", "themes"),
     },
-    adapterFileName: "adapter.json",
+    adapterFileName: "black-atom-adapter.json",
     themeKeys: [
         "black-atom-corp-engineering",
         "black-atom-corp-operations",
