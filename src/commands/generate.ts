@@ -29,9 +29,13 @@ async function getAdapterConfig(): Promise<AdapterConfig> {
 
 export default async function (themeMap: Config["themeMap"]) {
     const adapterConfig = await getAdapterConfig();
-    log.success("Adapter configuration loaded successfully");
-
     const { $schema: _, ...configs } = adapterConfig;
+
+    log.success(
+        `Adapter configuration loaded successfully. Found ${
+            Object.keys(configs).length
+        } theme keys.`,
+    );
 
     const configEntries = Object.entries(configs) as [Key, TemplateConfig][];
 

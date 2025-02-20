@@ -1,17 +1,26 @@
 import * as colors from "@std/fmt/colors";
 
+export const icon = {
+    success: "󰦕 ",
+    error: "󱄊 ",
+    warn: "󰲼 ",
+    info: "󰲼 ",
+};
+
+const separator = ":: ";
+
 const log = {
     error: (message: string) => {
-        console.error(colors.red(" " + message));
+        console.error(colors.red(icon.error + separator + message));
     },
     info: (message: string) => {
-        console.info(colors.white(" " + message));
+        console.info(colors.white(icon.info + separator + message));
     },
     warn: (message: string) => {
-        console.warn(colors.yellow(" " + message));
+        console.warn(colors.yellow(icon.warn + separator + message));
     },
     success: (message: string) => {
-        console.log(colors.green(" " + message));
+        console.log(colors.green(icon.success + separator + message));
     },
     menu: () => {
         log.info(`Usage: black-atom-core <command>
