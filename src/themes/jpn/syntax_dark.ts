@@ -90,8 +90,8 @@ export default function (primaries: Primaries, palette: Palette): Syntax {
                 unchecked: palette.lightGray,
             },
             code: {
-                fg: palette.magenta,
-                bg: primaries[3],
+                fg: palette.lightGray,
+                bg: primaries[0],
             },
         },
         tag: {
