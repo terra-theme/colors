@@ -16,3 +16,24 @@ npm run build
 # Watch for changes
 npm run dev
 ```
+
+## Theme Editor
+
+The project includes a web-based theme editor for visually creating and modifying themes:
+
+```bash
+# Navigate to the web editor directory
+cd web-editor
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The theme editor provides:
+- Visual editing of theme tokens
+- Live preview of the code editor with syntax highlighting
+- UI components preview for testing contrast and readability
+- Easy creation of new themes based on existing ones
